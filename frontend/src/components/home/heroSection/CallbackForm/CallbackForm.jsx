@@ -70,7 +70,7 @@ export const CallbackForm = () => {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/consultation", {
+      const res = await fetch("/api/callback-requests", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
