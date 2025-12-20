@@ -19,7 +19,7 @@ export const useSendClientInfo = () => {
       }
 
       try {
-        await fetch("http://localhost:8000/api/client-info", {
+        await fetch("/api/client-info", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ ip, userAgent }),

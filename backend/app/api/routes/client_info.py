@@ -2,7 +2,6 @@ from fastapi import APIRouter, Depends, Request
 from sqlalchemy.orm import Session
 
 from app.db.session import get_db
-from app.security import verify_ip
 from app.schemas.client_info import ClientInfoPayload
 from app.models.client_info import ClientInfo
 from app.utils.parse_user_agent import parse_user_agent
@@ -13,7 +12,6 @@ router = APIRouter(prefix="/api", tags=["Client Info"])
 
 @router.post(
     "/client-info",
-    dependencies=[Depends(verify_ip)],
 )
 async def save_client_info(
     payload: ClientInfoPayload,
