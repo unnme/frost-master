@@ -78,7 +78,7 @@ export const AboutSection = () => {
         <div className="pb-10">
           <h2
             ref={ref}
-            className={`text-center text-4xl font-extrabold text-main-dark/90 transition-all duration-1200 ease-out lg:px-20 ${
+            className={`px-10 text-center text-4xl font-extrabold text-main-dark/90 transition-all duration-1200 ease-out lg:px-20 ${
               visible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0"
             }`}
           >
@@ -98,16 +98,13 @@ export const AboutSection = () => {
           </div>
 
           <div
-            className="max-w-xl lg:h-(--faq-height)"
+            className="flex w-full max-w-none items-start lg:h-(--faq-height) lg:max-w-xl lg:items-center"
             style={{ "--faq-height": `${faqHeight}px` }}
           >
-            <div className="h-full overflow-hidden px-6">
-              <img
-                src={thought}
-                alt="Открытый холодильник"
-                className="h-full object-contain"
-              />
-            </div>
+            <img
+              src={thought}
+              className="max-h-[260px] w-full object-contain sm:max-h-80 lg:max-h-none"
+            />
           </div>
         </div>
       </div>
