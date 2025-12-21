@@ -1,4 +1,4 @@
-from fastapi import APIRouter, BackgroundTasks, Depends, Request
+from fastapi import APIRouter, Depends, Request
 from sqlalchemy.orm import Session
 
 from app.db.session import get_db
@@ -18,7 +18,6 @@ router = APIRouter(prefix="/api", tags=["Callback requests"])
 async def create_callback_request(
     payload: CallbackRequestCreate,
     request: Request,
-    background: BackgroundTasks,
     db: Session = Depends(get_db),
 ):
     new_entry = CallbackRequest(
@@ -30,8 +29,7 @@ async def create_callback_request(
     db.commit()
     db.refresh(new_entry)
 
-    background.add_task(
-        send_telegram,
+    await send_telegram(
         new_entry.name,
         new_entry.phone,
     )

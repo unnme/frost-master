@@ -37,6 +37,7 @@ env/
 # SQLite
 *.sqlite
 *.sqlite3
+*.db
 
 # Alembic migrations cache
 alembic/versions/*.pyc
