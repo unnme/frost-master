@@ -103,6 +103,7 @@ export const AboutSection = () => {
           >
             <img
               src={thought}
+              alt="Вопросы о ремонте холодильников"
               className="max-h-[260px] w-full object-contain sm:max-h-80 lg:max-h-none"
             />
           </div>

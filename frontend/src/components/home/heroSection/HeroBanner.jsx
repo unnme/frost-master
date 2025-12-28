@@ -31,6 +31,7 @@ export const HeroBanner = () => {
       >
         <img
           src={wrench}
+          alt="Мастер по ремонту холодильников с инструментом"
           className={`mt-40 w-115 opacity-90 ${isVisible ? "rotate-pop-in" : ""}`}
         />
       </div>
@@ -39,7 +40,9 @@ export const HeroBanner = () => {
       <div className="absolute top-1/2 left-1/2 z-0 -translate-x-1/2 -translate-y-34 sm:-translate-y-25 lg:hidden">
         <img
           src={wrench}
+          alt=""
           className="min-w-115 scale-125 opacity-10 sm:scale-130"
+          aria-hidden="true"
         />
       </div>
     </div>
