@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
 
+/**
+ * Hook to track active section in viewport using IntersectionObserver
+ * @param {string[]} sectionIds - Array of section IDs to observe
+ * @returns {string|null} - Active section ID or null
+ */
 export const useActiveSection = (sectionIds) => {
   const [activeId, setActiveId] = useState(null);
 
@@ -17,8 +22,10 @@ export const useActiveSection = (sectionIds) => {
       },
     );
 
-    const elements = sectionIds.map((id) => document.getElementById(id));
-    elements.forEach((el) => el && observer.observe(el));
+    const elements = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+    elements.forEach((el) => observer.observe(el));
 
     const handleScroll = () => {
       if (window.scrollY === 0) {
@@ -26,7 +33,7 @@ export const useActiveSection = (sectionIds) => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
       observer.disconnect();

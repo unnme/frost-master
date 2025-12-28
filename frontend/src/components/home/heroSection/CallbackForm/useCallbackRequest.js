@@ -2,6 +2,7 @@ import { useState } from "react";
 
 /**
  * Hook for submitting callback requests with FastAPI error handling
+ * @returns {Object} - { submitRequest, loading, error, success, reset }
  */
 export const useCallbackRequest = () => {
 	const [loading, setLoading] = useState(false);

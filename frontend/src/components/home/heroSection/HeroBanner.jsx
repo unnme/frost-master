@@ -10,10 +10,10 @@ export const HeroBanner = () => {
       <div className="z-10 flex flex-1 flex-col px-6 sm:items-center lg:items-start">
         <h1 className="text-left sm:text-center lg:text-left">
           <span className="mb-1 block text-3xl font-extrabold text-main-light sm:text-4xl lg:text-5xl lg:font-bold">
-            ПРОФЕССИОНАЛЬНЫЙ РЕМОНТ
+            Ремонт холодильников в Краснодаре
           </span>
           <span className="mb-1 block text-3xl font-extrabold text-main-light sm:text-4xl md:mt-1 lg:text-5xl lg:font-bold">
-            ВАШЕГО ХОЛОДИЛЬНИКА
+            и Адыгее — быстро и качественно
           </span>
         </h1>
 
@@ -32,6 +32,8 @@ export const HeroBanner = () => {
         <img
           src={wrench}
           alt="Мастер по ремонту холодильников с инструментом"
+          width="460"
+          height="460"
           className={`mt-40 w-115 opacity-90 ${isVisible ? "rotate-pop-in" : ""}`}
         />
       </div>

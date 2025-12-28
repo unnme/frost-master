@@ -70,7 +70,12 @@ export const StructuredData = () => {
 				"Диагностика холодильников",
 				"Замена запчастей",
 			],
-			image: `${SITE_URL}/master.png`,
+			image: {
+				"@type": "ImageObject",
+				url: `${SITE_URL}/master.png`,
+				width: 1200,
+				height: 630,
+			},
 			aggregateRating: {
 				"@type": "AggregateRating",
 				ratingValue: "5",

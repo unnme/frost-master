@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
+/**
+ * Hook to detect scroll direction (hide/show navbar on scroll)
+ * @returns {boolean} - true if should be visible, false if should be hidden
+ */
 export const useScrollDirection = () => {
   const [visible, setVisible] = useState(true);
   const lastScrollY = useRef(0);

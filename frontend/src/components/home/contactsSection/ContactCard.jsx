@@ -13,9 +13,9 @@ export const ContactCard = ({ className = "" }) => (
       <span className="text-blue-900/80">Frost</span>
       <span className="text-main-orange/90">Master</span>
     </h2>
-    <h5 className="text-md mb-3 font-semibold text-main-dark">
+    <h3 className="text-md mb-3 font-semibold text-main-dark">
       Свяжитесь с нами!
-    </h5>
+    </h3>
     <p className="flex items-center gap-2 text-sm text-gray-700">
       <span className="text-main-dark/60">📞</span>
       <a

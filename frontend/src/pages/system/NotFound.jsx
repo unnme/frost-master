@@ -9,7 +9,7 @@ export default function NotFound() {
     <>
       <SeoHead
         title="404 — Страница не найдена | FrostMaster"
-        description="Страница не найдена. Вернитесь на главную страницу FrostMaster."
+        description="Страница не найдена. Вернитесь на главную страницу FrostMaster - ремонт холодильников в Краснодаре и Адыгее."
         canonical="/404"
       />
       <div className="flex min-h-screen flex-col items-center justify-center bg-main-dark/5 px-4 text-center text-main-dark">

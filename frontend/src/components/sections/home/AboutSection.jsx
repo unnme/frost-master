@@ -36,7 +36,8 @@ export const AboutSection = () => {
         </div>
         <img
           src={masterIMG}
-          alt="Мастер по ремонту холодильников"
+          alt="Мастер по ремонту холодильников Александр с 10-летним опытом работы"
+          loading="lazy"
           className="mx-auto max-h-100 object-cover"
         />
       </div>
@@ -103,7 +104,8 @@ export const AboutSection = () => {
           >
             <img
               src={thought}
-              alt="Вопросы о ремонте холодильников"
+              alt="Часто задаваемые вопросы о ремонте холодильников"
+              loading="lazy"
               className="max-h-[260px] w-full object-contain sm:max-h-80 lg:max-h-none"
             />
           </div>

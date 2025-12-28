@@ -1,5 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 
+/**
+ * Hook to track element height using ResizeObserver
+ * @param {React.RefObject} ref - Ref to element to observe
+ * @returns {[number, Function]} - [height, updateHeight function]
+ */
 export const useElementHeight = (ref) => {
   const [height, setHeight] = useState(0);
 
@@ -7,16 +12,22 @@ export const useElementHeight = (ref) => {
     if (ref.current) {
       setHeight(ref.current.scrollHeight);
     }
-  }, [ref]);
+  }, []);
 
   useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
     updateHeight();
 
     const observer = new ResizeObserver(updateHeight);
-    if (ref.current) observer.observe(ref.current);
+    observer.observe(element);
 
-    return () => observer.disconnect();
-  }, [ref, updateHeight]);
+    return () => {
+      observer.unobserve(element);
+      observer.disconnect();
+    };
+  }, [updateHeight]);
 
   return [height, updateHeight];
 };

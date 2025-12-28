@@ -1,5 +1,8 @@
 import { useEffect } from "react";
 
+/**
+ * Hook to send client info (IP and user agent) to backend on first visit
+ */
 export const useSendClientInfo = () => {
   useEffect(() => {
     if (localStorage.getItem("clientInfoSent")) {
@@ -18,7 +21,7 @@ export const useSendClientInfo = () => {
         }
       } catch (e) {
         if (import.meta.env.DEV) {
-          console.warn("Не удалось получить IP:", e);
+          console.warn("Failed to get IP:", e);
         }
       }
 
@@ -34,7 +37,7 @@ export const useSendClientInfo = () => {
         }
       } catch (e) {
         if (import.meta.env.DEV) {
-          console.warn("Ошибка отправки клиентских данных:", e);
+          console.warn("Failed to send client info:", e);
         }
       }
     };

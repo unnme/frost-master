@@ -4,7 +4,7 @@ const DEFAULT_SITE_URL = "https://frost-master.com";
 const DEFAULT_TITLE =
 	"FrostMaster — ремонт холодильников в Краснодаре и Адыгее";
 const DEFAULT_DESCRIPTION =
-	"FrostMaster - ремонт рядом с Вами! Ремонтируем холодильники и холодильное оборудование в Краснодаре и Адыгее. Качественный ремонт, честные цены и гарантия. Работаем ежедневно с 8:00 до 22:00";
+	"FrostMaster - профессиональный ремонт холодильников в Краснодаре и Адыгее. Выезд мастера на дом, диагностика, замена запчастей. Гарантия на работы. Работаем ежедневно с 8:00 до 22:00. Ремонт всех брендов: Samsung, LG, Bosch, Indesit, Atlant и другие.";
 
 /**
  * Normalizes URL to preferred domain (without www)
@@ -122,7 +122,7 @@ export const SeoHead = ({
 		// Additional SEO meta tags
 		const additionalTags = {
 			keywords:
-				"ремонт холодильников, ремонт холодильников Краснодар, ремонт холодильников Адыгея, мастер по ремонту холодильников, ремонт холодильного оборудования, выезд мастера, ремонт на дому",
+				"ремонт холодильников, ремонт холодильников Краснодар, ремонт холодильников Адыгея, мастер по ремонту холодильников, ремонт холодильного оборудования, выезд мастера, ремонт на дому, ремонт холодильников на дому Краснодар",
 			author: "FrostMaster",
 			"format-detection": "telephone=yes",
 		};
@@ -136,6 +136,18 @@ export const SeoHead = ({
 			}
 			meta.setAttribute("content", content);
 		});
+
+		// Meta robots (update if needed)
+		let metaRobots = document.querySelector('meta[name="robots"]');
+		if (!metaRobots) {
+			metaRobots = document.createElement("meta");
+			metaRobots.setAttribute("name", "robots");
+			document.head.appendChild(metaRobots);
+		}
+		metaRobots.setAttribute(
+			"content",
+			"index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+		);
 	}, [title, description, fullCanonical, fullOgImage, ogType]);
 
 	return null;
