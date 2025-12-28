@@ -16,7 +16,7 @@ router = APIRouter(prefix="/api", tags=["Callback requests"])
     response_model=CallbackRequestRead,
     status_code=201,
 )
-@limiter.limit("5/minute")
+@limiter.limit("2/minute")
 async def create_callback_request(
     payload: CallbackRequestCreate,
     request: Request,

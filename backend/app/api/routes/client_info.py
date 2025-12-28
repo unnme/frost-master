@@ -5,6 +5,7 @@ from app.db.session import get_db
 from app.schemas.client_info import ClientInfoPayload
 from app.models.client_info import ClientInfo
 from app.utils.parse_user_agent import parse_user_agent
+from app.utils.get_client_ip import get_client_ip
 
 
 router = APIRouter(prefix="/api", tags=["Client Info"])
@@ -18,9 +19,8 @@ async def save_client_info(
     request: Request,
     db: Session = Depends(get_db),
 ):
-    real_ip = (
-        payload.ip or request.headers.get("x-forwarded-for") or request.client.host
-    )
+    # Use same IP extraction logic as rate limiter for consistency
+    real_ip = payload.ip or get_client_ip(request)
 
     ua_raw = payload.userAgent or request.headers.get("user-agent")
     ua = parse_user_agent(ua_raw)
