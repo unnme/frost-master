@@ -1,11 +1,18 @@
 import { RoutePaths } from "@general/RoutePaths.jsx";
 import { useNavigate } from "react-router-dom";
+import { SeoHead } from "@components/common/SeoHead";
 
 export default function NotFound() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-main-dark/5 px-4 text-center text-main-dark">
+    <>
+      <SeoHead
+        title="404 — Страница не найдена | FrostMaster"
+        description="Страница не найдена. Вернитесь на главную страницу FrostMaster."
+        canonical="/404"
+      />
+      <div className="flex min-h-screen flex-col items-center justify-center bg-main-dark/5 px-4 text-center text-main-dark">
       <h1 className="text-[120px] leading-none font-extrabold tracking-tight lg:text-[160px]">
         404
       </h1>
@@ -24,5 +31,6 @@ export default function NotFound() {
         На главную
       </button>
     </div>
+    </>
   );
 }

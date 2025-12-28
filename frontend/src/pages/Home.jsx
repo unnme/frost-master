@@ -1,13 +1,19 @@
-import { HeroSection } from "@general/sections/home/HeroSection";
-import { AboutSection } from "@general/sections/home/AboutSection";
-import { ContactsSection } from "@general/sections/home/ContactsSection";
+import {
+	HeroSection,
+	AboutSection,
+	ContactsSection,
+} from "@components/sections/home";
+import { SeoHead } from "@components/common/SeoHead";
 
 export default function Home() {
   return (
-    <div className="space-y-12">
-      <HeroSection />
-      <AboutSection />
-      <ContactsSection />
-    </div>
+    <>
+      <SeoHead canonical="/" />
+      <div className="space-y-12">
+        <HeroSection />
+        <AboutSection />
+        <ContactsSection />
+      </div>
+    </>
   );
 }

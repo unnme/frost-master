@@ -36,3 +36,4 @@ const ParticlesWrapperComponent = ({
 };
 
 export const ParticlesWrapper = memo(ParticlesWrapperComponent);
+

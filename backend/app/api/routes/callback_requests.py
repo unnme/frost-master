@@ -1,5 +1,6 @@
-from fastapi import APIRouter, BackgroundTasks, Depends, Request
+from fastapi import APIRouter, BackgroundTasks, Depends, Request, HTTPException
 from sqlalchemy.orm import Session
+from sqlalchemy.exc import SQLAlchemyError
 
 from app.db.session import get_db
 from app.models.callback_request import CallbackRequest
@@ -13,6 +14,7 @@ router = APIRouter(prefix="/api", tags=["Callback requests"])
 @router.post(
     "/callback-requests",
     response_model=CallbackRequestRead,
+    status_code=201,
 )
 @limiter.limit("5/minute")
 async def create_callback_request(
@@ -21,19 +23,23 @@ async def create_callback_request(
     background: BackgroundTasks,
     db: Session = Depends(get_db),
 ):
-    new_entry = CallbackRequest(
-        name=payload.name,
-        phone=payload.phone,
-    )
+    try:
+        new_entry = CallbackRequest(
+            name=payload.name,
+            phone=payload.phone,
+        )
 
-    db.add(new_entry)
-    db.commit()
-    db.refresh(new_entry)
+        db.add(new_entry)
+        db.commit()
+        db.refresh(new_entry)
 
-    background.add_task(
-        send_telegram,
-        new_entry.name,
-        new_entry.phone,
-    )
+        background.add_task(
+            send_telegram,
+            new_entry.name,
+            new_entry.phone,
+        )
 
-    return new_entry
+        return new_entry
+    except SQLAlchemyError as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail="Ошибка базы данных")

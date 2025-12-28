@@ -13,7 +13,6 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
       "@api": path.resolve(__dirname, "src/api"),
       "@general": path.resolve(__dirname, "src/general"),
-      "@services": path.resolve(__dirname, "src/services"),
       "@pages": path.resolve(__dirname, "src/pages"),
       "@components": path.resolve(__dirname, "src/components"),
       "@assets": path.resolve(__dirname, "src/assets"),
@@ -25,7 +24,7 @@ export default defineConfig({
   },
 
   server: {
-    host: true,
+    host: "localhost",
     port: 5173,
 
     proxy: {

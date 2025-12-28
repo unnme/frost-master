@@ -7,7 +7,7 @@ import { ErrorFallback } from "@pages/system/ErrorFallback.jsx";
 
 import { Footer } from "@components/Footer";
 import { Navbar } from "@components/Navbar";
-import { ParticlesWrapper } from "@components/ParticlesWrapper";
+import { ParticlesWrapper } from "@components/common/ParticlesWrapper";
 
 export const Layout = ({ children }) => {
   const isVisible = useScrollDirection();

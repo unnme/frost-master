@@ -12,22 +12,30 @@ export const useSendClientInfo = () => {
       let ip = null;
       try {
         const res = await fetch("https://api.ipify.org?format=json");
-        const data = await res.json();
-        ip = data.ip;
+        if (res.ok) {
+          const data = await res.json();
+          ip = data.ip;
+        }
       } catch (e) {
-        console.warn("Не удалось получить IP:", e);
+        if (import.meta.env.DEV) {
+          console.warn("Не удалось получить IP:", e);
+        }
       }
 
       try {
-        await fetch("/api/client-info", {
+        const res = await fetch("/api/client-info", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ ip, userAgent }),
         });
 
-        localStorage.setItem("clientInfoSent", "true");
+        if (res.ok) {
+          localStorage.setItem("clientInfoSent", "true");
+        }
       } catch (e) {
-        console.warn("Ошибка отправки клиентских данных:", e);
+        if (import.meta.env.DEV) {
+          console.warn("Ошибка отправки клиентских данных:", e);
+        }
       }
     };
 

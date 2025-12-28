@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { useLockBodyScroll } from "./useLockBodyScroll";
+import { useLockBodyScroll } from "@hooks/useLockBodyScroll";
 
 export function SuccessDialog({ open, onClose }) {
   const dialogRef = useRef(null);

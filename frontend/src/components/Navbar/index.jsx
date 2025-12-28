@@ -28,7 +28,7 @@ export const Navbar = () => {
     <div>
       <div className="border-x border-b-5 border-main-dark/20 bg-main-dark/10 px-6 backdrop-blur md:px-8 lg:rounded-b-2xl">
         <div className="flex h-(--navbar-height) items-center justify-between">
-          {/* Бургер */}
+          {/* Mobile menu toggle */}
           <button
             onClick={toggleMenu}
             aria-label={open ? "Закрыть меню" : "Открыть меню"}
@@ -41,13 +41,13 @@ export const Navbar = () => {
             )}
           </button>
 
-          {/* Десктоп меню */}
+          {/* Desktop navigation */}
           <DesktopNav
             items={NAV_ITEMS}
             activeId={activeId}
           />
 
-          {/* Контакты */}
+          {/* Contacts */}
           <ContactsBlock
             phone={phone}
             telHref={telHref}
@@ -57,7 +57,7 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/* Мобильное меню */}
+      {/* Mobile menu */}
       {open && (
         <MobileNav
           items={NAV_ITEMS}
