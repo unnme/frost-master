@@ -1,0 +1,40 @@
+{
+  "name": "frost-master",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "check": "eslint src --ext jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "pre-commit": "check",
+  "dependencies": {
+    "@headlessui/react": "^2.2.9",
+    "@tailwindcss/vite": "^4.1.17",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.9.1",
+    "clsx": "^2.1.1",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "react-error-boundary": "^6.0.0",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.10.1",
+    "swiper": "^12.0.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react-swc": "^4.2.2",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "pre-commit": "^1.2.2",
+    "prettier": "^3.7.4",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "tailwindcss": "^4.1.17",
+    "vite": "^7.2.6"
+  }
+}

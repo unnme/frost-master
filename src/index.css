@@ -1,0 +1,165 @@
+@import "./assets/fonts/fonts.css";
+@import "tailwindcss";
+
+@theme {
+  --color-main-light: #f7f6f1;
+  --color-main-dark: #525252;
+  --color-main-orange: #c94b0a;
+  --color-text-disabled: hsl(217 10% 50% / 0.6);
+
+  --font-sans: "Manrope", system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+@layer components {
+  .gradient-blue-soft {
+    background-image: linear-gradient(to top right, #d6d6da, #f3f2eb, #d4d8df);
+  }
+
+  .gradient-blue-strong {
+    background-image: linear-gradient(to right, #4c4f96, #405599, #3d599d);
+  }
+}
+
+@custom-media --custombp (min-width: 920px);
+
+@layer base {
+  html,
+  body {
+    color: var(--color-main-dark);
+    overscroll-behavior: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+:root {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+
+  --footer-height: 64px;
+  --navbar-height: 64px;
+}
+
+@layer utilities {
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 14s linear infinite;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes fadeSlideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .fade-slide-in {
+    opacity: 0;
+    animation: fadeSlideIn 0.6s ease-out forwards;
+  }
+
+  @keyframes spinSlow {
+    0% {
+      transform: rotate(0deg);
+    }
+    4% {
+      transform: rotate(360deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .spin-every-8s {
+    animation: spinSlow 8s linear infinite;
+    animation-delay: 2s;
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .slide-in-right {
+    opacity: 0;
+    animation: slideInRight 0.8s ease-out forwards;
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .slide-in-left {
+    opacity: 0;
+    animation: slideInLeft 0.8s ease-out forwards;
+  }
+
+  @keyframes popIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .pop-in {
+    opacity: 0;
+    transform: scale(0.8);
+    animation: popIn 0.5s ease-out forwards;
+  }
+
+  @keyframes rotatePopIn {
+    0% {
+      transform: rotate(6deg);
+    }
+    50% {
+      transform: rotate(-6deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  .rotate-pop-in {
+    animation: rotatePopIn 0.8s ease-out forwards;
+    animation-delay: 1s;
+  }
+}

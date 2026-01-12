@@ -1,0 +1,17 @@
+{
+  "name": "FrostMaster - Ремонт холодильников",
+  "short_name": "FrostMaster",
+  "description": "Профессиональный ремонт холодильников в Краснодаре и Адыгее",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#405599",
+  "background_color": "#f7f6f1"
+}
+
