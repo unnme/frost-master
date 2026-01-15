@@ -13,11 +13,11 @@ export const HeroBanner = () => {
             Ремонт холодильников в Краснодаре
           </span>
           <span className="mb-1 block text-3xl font-extrabold text-main-light sm:text-4xl md:mt-1 lg:text-5xl lg:font-bold">
-            и Адыгее — быстро и качественно
+            и Адыгее
           </span>
         </h1>
 
-        <p className="text-3xl text-main-light">
+        <p className="mt-2 text-3xl text-main-light lg:mt-4">
           <span className="bg-main-orange/90 px-1 pb-1">
             Быстро, качественно, недорого.
           </span>

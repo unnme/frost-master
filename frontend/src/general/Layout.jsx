@@ -1,13 +1,10 @@
-import clsx from "clsx";
-import { ErrorBoundary } from "react-error-boundary";
-
-import { useScrollDirection } from "@hooks/useScrollDirection";
-
-import { ErrorFallback } from "@pages/system/ErrorFallback.jsx";
-
 import { Footer } from "@components/Footer";
 import { Navbar } from "@components/Navbar";
 import { ParticlesWrapper } from "@components/common/ParticlesWrapper";
+import { useScrollDirection } from "@hooks/useScrollDirection";
+import { ErrorFallback } from "@pages/system/ErrorFallback.jsx";
+import { cn } from "@utils/cn";
+import { ErrorBoundary } from "react-error-boundary";
 
 export const Layout = ({ children }) => {
   const isVisible = useScrollDirection();
@@ -19,9 +16,9 @@ export const Layout = ({ children }) => {
       {/* Header */}
       <div className="mx-auto max-w-7xl">
         <header
-          className={clsx(
+          className={cn(
             "fixed top-0 right-0 left-0 z-10 mx-auto max-w-7xl transition-transform duration-300",
-            { "-translate-y-20": !isVisible },
+            !isVisible && "-translate-y-20",
           )}
         >
           <Navbar />

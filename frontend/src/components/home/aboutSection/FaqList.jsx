@@ -1,4 +1,5 @@
 import { HiChevronDown } from "react-icons/hi2";
+import { cn } from "@utils/cn";
 
 const faqItems = [
   {
@@ -44,16 +45,18 @@ const FaqItem = ({ item, isOpen, onToggle }) => {
           {item.question}
         </span>
         <HiChevronDown
-          className={`h-5 w-5 text-main-dark/70 transition-transform duration-300 ${
-            isOpen ? "rotate-180" : ""
-          }`}
+          className={cn(
+            "h-5 w-5 text-main-dark/70 transition-transform duration-300",
+            isOpen && "rotate-180",
+          )}
         />
       </button>
 
       <div
-        className={`grid overflow-hidden transition-all duration-300 ${
-          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-        }`}
+        className={cn(
+          "grid overflow-hidden transition-all duration-300",
+          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+        )}
       >
         <div className="overflow-hidden px-5 pb-4 text-sm text-main-dark/80">
           {item.answer}

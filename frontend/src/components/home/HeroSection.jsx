@@ -1,8 +1,8 @@
-import { FeaturesBar } from "@components/home/heroSection/FeaturesBar";
-import { HeroBanner } from "@components/home/heroSection/HeroBanner";
-import { RepairTagsBar } from "@components/home/heroSection/RepairTagsBar.jsx";
-import { CallbackForm } from "@components/home/heroSection/CallbackForm";
-import { Benefits } from "@components/home/heroSection/Benefits";
+import { Benefits } from "./heroSection/Benefits";
+import { CallbackForm } from "./heroSection/CallbackForm";
+import { FeaturesBar } from "./heroSection/FeaturesBar";
+import { HeroBanner } from "./heroSection/HeroBanner";
+import { RepairTagsBar } from "./heroSection/RepairTagsBar.jsx";
 
 export const HeroSection = () => {
   return (
