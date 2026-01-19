@@ -6,6 +6,10 @@ User-agent: Yandex
 Allow: /
 Crawl-delay: 1
 
+# Yandex Images
+User-agent: YandexImages
+Allow: /
+
 # Google
 User-agent: Googlebot
 Allow: /
@@ -13,5 +17,6 @@ Allow: /
 # Disallow admin and API endpoints
 Disallow: /api/
 
+# Sitemap
 Sitemap: https://frost-master.com/sitemap.xml
 
