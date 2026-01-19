@@ -109,7 +109,7 @@ export const SeoHead = ({
 
     // Yandex specific meta tags
     const yandexTags = {
-      "yandex-verification": "", // Add your Yandex verification code
+      "yandex-verification": "196ea4b11cfdba4c",
       "geo.region": "RU-KDA",
       "geo.placename": "Краснодар",
       "geo.position": "45.0355;38.9753",
@@ -117,7 +117,6 @@ export const SeoHead = ({
     };
 
     Object.entries(yandexTags).forEach(([name, content]) => {
-      if (!content) return; // Skip empty values
       let meta = document.querySelector(`meta[name="${name}"]`);
       if (!meta) {
         meta = document.createElement("meta");
