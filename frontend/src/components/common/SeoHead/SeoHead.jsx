@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect } from "react"
 
 const DEFAULT_SITE_URL = "https://frost-master.com";
 const DEFAULT_TITLE =
@@ -55,9 +55,21 @@ export const SeoHead = ({
     linkCanonical.setAttribute("href", fullCanonical);
 
     // OpenGraph tags
+    // Create optimized OG title (short, informative, no duplication)
+    const ogTitle =
+      title === DEFAULT_TITLE
+        ? "Ремонт холодильников в Краснодаре и Адыгее"
+        : title.replace(/^Frost-Master\s*—\s*/, "");
+
+    // Create optimized OG description (content-rich, no duplication)
+    const ogDescription =
+      description === DEFAULT_DESCRIPTION
+        ? "Выезд мастера и диагностика БЕСПЛАТНО при согласии на ремонт. ☎️: +7 (927) 918-88-18. Ежедневно с 8:00 до 22:00. Гарантия 3-12 месяцев. Ремонт всех брендов: Samsung, LG, Bosch, Indesit, Atlant, Beko, Haier и другие."
+        : description.replace(/^Frost-Master\s*—\s*/, "");
+
     const ogTags = {
-      "og:title": title,
-      "og:description": description,
+      "og:title": ogTitle,
+      "og:description": ogDescription,
       "og:type": ogType,
       "og:url": fullCanonical,
       "og:image": fullOgImage,
@@ -77,11 +89,11 @@ export const SeoHead = ({
       meta.setAttribute("content", content);
     });
 
-    // Twitter Card tags
+    // Twitter Card tags (use optimized OG values)
     const twitterTags = {
       "twitter:card": "summary_large_image",
-      "twitter:title": title,
-      "twitter:description": description,
+      "twitter:title": ogTitle,
+      "twitter:description": ogDescription,
       "twitter:image": fullOgImage,
     };
 
