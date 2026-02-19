@@ -1,5 +1,4 @@
 import { AboutStatsBar } from "./aboutSection/AboutStatsBar";
-import { ReviewsCarousel } from "./aboutSection/ReviewsCarousel";
 import { BrandsStrip } from "./aboutSection/BrandsStrip";
 import { AboutMasterText } from "./aboutSection/AboutMasterText";
 import { FaqList } from "./aboutSection/FaqList";
@@ -12,6 +11,11 @@ import { useInViewOnce } from "@hooks/useInViewOnce";
 import { SectionBackground } from "@components/common/SectionBackground";
 import { cn } from "@utils/cn";
 
+import { ServiceList } from "./aboutSection/ServiceList";
+import { RepairTagsBar } from "./heroSection/RepairTagsBar";
+
+import { Wrench, CircleHelp, WrenchIcon } from "lucide-react";
+
 import thought from "@images/thought.png";
 import masterIMG from "@images/master.png";
 
@@ -19,7 +23,8 @@ export const AboutSection = () => {
 	const faqRef = useRef(null);
 	const [openIndex, setOpenIndex] = useState(0);
 	const [faqHeight, updateHeight] = useElementHeight(faqRef);
-	const [ref, visible] = useInViewOnce();
+	const [stepsRef, stepsVisible] = useInViewOnce(0.1);
+	const [faqTitleRef, faqTitleVisible] = useInViewOnce(0.1);
 
 	const toggle = (index) => {
 		setOpenIndex((prev) => (prev === index ? null : index));
@@ -32,8 +37,8 @@ export const AboutSection = () => {
 			className="scroll-mt-28"
 		>
 			{/* MasterInfoBlock */}
-			<div className="grid items-center gap-10 px-6 pb-12 lg:grid-cols-2">
-				<div className="px-6">
+			<div className="grid items-center gap-10 px-6 pb-12 md:px-8 lg:grid-cols-2">
+				<div>
 					<AboutMasterText />
 				</div>
 				<img
@@ -44,6 +49,27 @@ export const AboutSection = () => {
 				/>
 			</div>
 
+			{/* Services */}
+			<div className="relative py-10">
+				<SectionBackground variant="full" />
+
+				<div className="pb-10 px-6 md:px-8">
+					<h2 className="flex items-center gap-3 text-4xl font-extrabold text-main-dark/90">
+						<WrenchIcon className="h-9 w-9 shrink-0 text-main-orange" />
+						Услуги
+						<span className="mt-1 h-0.5 flex-1 bg-highlight" />
+					</h2>
+					<p className="mt-2 text-main-dark/70">Полный спектр услуг по ремонту холодильников</p>
+				</div>
+
+				<ServiceList />
+			</div>
+
+			{/* RepairTagsBar */}
+			<div className="py-10">
+				<RepairTagsBar />
+			</div>
+
 			{/* StepsAndPriceBlock */}
 			<div className="relative pt-10 lg:pb-10">
 				<SectionBackground
@@ -52,22 +78,26 @@ export const AboutSection = () => {
 				/>
 
 				<div className="pb-10">
-					<h2
-						ref={ref}
+					<div
+						ref={stepsRef}
 						className={cn(
-							"text-center text-4xl font-extrabold text-main-dark/90 transition-all duration-1200 ease-out lg:px-20",
-							visible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0",
+							"px-6 transition-all duration-1200 ease-out md:px-8",
+							stepsVisible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0",
 						)}
 					>
-						Как мы работаем
-					</h2>
+						<h2 className="flex items-center gap-3 text-4xl font-extrabold text-main-dark/90">
+							<Wrench className="h-9 w-9 shrink-0 text-main-orange" />
+							Как мы работаем
+							<span className="mt-1 h-0.5 flex-1 bg-highlight" />
+						</h2>
+					</div>
 				</div>
 
 				<div className="grid gap-y-16 md:gap-y-30 lg:grid-cols-[2fr_1.5fr]">
-					<div className="pt-3 lg:px-14">
+					<div className="pt-3 px-6 md:px-8">
 						<StepList />
 					</div>
-					<div className="sm:px-6 lg:px-0">
+					<div className="px-6 md:px-8 lg:px-0">
 						<PriceList />
 					</div>
 				</div>
@@ -80,23 +110,27 @@ export const AboutSection = () => {
 
 			{/* faqBlog */}
 			<div className="relative py-10">
-				<SectionBackground variant="left" />
+				<SectionBackground variant="full" />
 
 				<div className="pb-10">
-					<h2
-						ref={ref}
+					<div
+						ref={faqTitleRef}
 						className={cn(
-							"px-10 text-center text-4xl font-extrabold text-main-dark/90 transition-all duration-1200 ease-out lg:px-20",
-							visible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0",
+							"px-6 transition-all duration-1200 ease-out md:px-8",
+							faqTitleVisible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0",
 						)}
 					>
-						Часто задаваемые вопросы
-					</h2>
+						<h2 className="flex items-center gap-3 text-4xl font-extrabold text-main-dark/90">
+							<CircleHelp className="h-9 w-9 shrink-0 text-main-orange" />
+							Часто задаваемые вопросы
+							<span className="mt-1 h-0.5 flex-1 bg-highlight" />
+						</h2>
+					</div>
 				</div>
 
-				<div className="flex flex-col items-center justify-between gap-y-10 px-6 min-[1015px]:flex-row">
+				<div className="flex flex-col items-center justify-between gap-y-10 px-6 md:px-8 min-[1015px]:flex-row">
 					<div
-						className="max-w-xl flex-1 lg:max-w-2xl lg:px-6"
+						className="max-w-xl flex-1 lg:max-w-2xl"
 						ref={faqRef}
 					>
 						<FaqList
@@ -119,17 +153,8 @@ export const AboutSection = () => {
 				</div>
 			</div>
 
-			<div className="relative mt-20 pt-10 lg:pb-10">
-				<SectionBackground />
-
-				{/* ReviewsCarousel */}
-				<div className="px-6 pt-10">
-					<ReviewsCarousel />
-				</div>
-			</div>
-
 			{/* BrandsStrip */}
-			<div className="px-12 py-12 pt-24">
+			<div className="py-20">
 				<BrandsStrip />
 			</div>
 		</section>
