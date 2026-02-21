@@ -1,10 +1,9 @@
 import { useEffect } from "react";
+import { SITE_CONFIG } from "@config/siteConfig";
+import { FAQ_ITEMS } from "@config/faqItems";
 
-const SITE_URL = "https://frost-master.com";
-const PHONE = "+7 (927) 918-88-18";
-const EMAIL = "whereisxur@icloud.com";
-const ADDRESS = "г. Краснодар, Бжегокайская 31/3 к3";
-const WORKING_HOURS = "Mo-Su 08:00-22:00";
+const { siteUrl, brandName, contacts, geo, sameAs, serviceAreas } =
+  SITE_CONFIG;
 
 /**
  * Structured data component for SEO (JSON-LD)
@@ -12,32 +11,32 @@ const WORKING_HOURS = "Mo-Su 08:00-22:00";
  */
 export const StructuredData = () => {
   useEffect(() => {
-    // LocalBusiness schema for Yandex and Google
     const localBusiness = {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "@id": `${SITE_URL}#organization`,
-      name: "Frost-Master",
+      "@id": `${siteUrl}#localbusiness`,
+      name: brandName,
       alternateName: "Frost Master",
       description:
         "Ремонт холодильников и холодильного оборудования в Краснодаре и Адыгее. Профессиональный мастер с 10-летним опытом. Выезд на дом, гарантия на работы.",
-      url: SITE_URL,
-      telephone: PHONE,
-      email: EMAIL,
+      url: siteUrl,
+      telephone: contacts.phone,
+      email: contacts.email,
       priceRange: "$$",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Бжегокайская 31/3 к3",
-        addressLocality: "Краснодар",
-        addressRegion: "Краснодарский край",
+        streetAddress: contacts.streetAddress,
+        addressLocality: contacts.city,
+        addressRegion: contacts.region,
+        postalCode: contacts.postalCode,
         addressCountry: "RU",
       },
       geo: {
         "@type": "GeoCoordinates",
-        // Approximate coordinates for Krasnodar, Bzhegokayskaya street
-        latitude: "45.0355",
-        longitude: "38.9753",
+        latitude: geo.latitude,
+        longitude: geo.longitude,
       },
+      openingHours: contacts.hoursSchema,
       openingHoursSpecification: [
         {
           "@type": "OpeningHoursSpecification",
@@ -54,16 +53,10 @@ export const StructuredData = () => {
           closes: "22:00",
         },
       ],
-      areaServed: [
-        {
-          "@type": "City",
-          name: "Краснодар",
-        },
-        {
-          "@type": "AdministrativeArea",
-          name: "Республика Адыгея",
-        },
-      ],
+      areaServed: serviceAreas.map(({ name, type }) => ({
+        "@type": type,
+        name,
+      })),
       serviceType: [
         "Ремонт холодильников",
         "Ремонт холодильного оборудования",
@@ -72,7 +65,7 @@ export const StructuredData = () => {
       ],
       image: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/master.png`,
+        url: `${siteUrl}/master.png`,
         width: 1200,
         height: 630,
       },
@@ -83,7 +76,6 @@ export const StructuredData = () => {
         bestRating: "5",
         worstRating: "1",
       },
-      // Additional fields for better Yandex indexing
       paymentAccepted: "Cash, Card",
       currenciesAccepted: "RUB",
       hasOfferCatalog: {
@@ -112,84 +104,37 @@ export const StructuredData = () => {
       },
     };
 
-    // Organization schema
     const organization = {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "@id": `${SITE_URL}#organization`,
-      name: "Frost-Master",
+      "@id": `${siteUrl}#organization`,
+      name: brandName,
       alternateName: "Frost Master",
-      url: SITE_URL,
-      logo: `${SITE_URL}/logo.svg`,
+      url: siteUrl,
+      logo: `${siteUrl}/logo.svg`,
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: PHONE,
+        telephone: contacts.phone,
         contactType: "customer service",
         areaServed: ["RU"],
         availableLanguage: ["Russian"],
       },
-      sameAs: [
-        // Add social media links if available
-      ],
+      sameAs,
     };
 
-    // FAQPage schema
     const faqPage = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "Сколько стоит выезд?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Выезд мастера по Краснодару — бесплатно при согласии на ремонт. Если вы откажетесь от работ, оплачивается только диагностика.",
-          },
+      mainEntity: FAQ_ITEMS.map(({ question, answer }) => ({
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: answer,
         },
-        {
-          "@type": "Question",
-          name: "Сколько занимает ремонт?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Ремонт обычно занимает от 30 минут до 2 часов. Зависит от сложности поломки и деталей. Точный срок назовёт мастер после диагностики.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Что если мастер не починит?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Если починка невозможна или экономически нецелесообразна, вы оплачиваете только диагностику. Никаких скрытых платежей.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Есть ли гарантия?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Да, на все виды работ и запчасти предоставляем гарантию от 3 до 12 месяцев.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Какие бренды ремонтируете?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Ремонтируем большинство брендов: Samsung, LG, Bosch, Indesit, Atlant, Ariston, Beko, Haier и другие.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Работаете в выходные?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Да, выезжаем ежедневно — включая выходные и праздники.",
-          },
-        },
-      ],
+      })),
     };
 
-    // BreadcrumbList schema
     const breadcrumb = {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -198,12 +143,11 @@ export const StructuredData = () => {
           "@type": "ListItem",
           position: 1,
           name: "Главная",
-          item: SITE_URL,
+          item: siteUrl,
         },
       ],
     };
 
-    // Add all structured data to page
     const scripts = [
       { id: "local-business", data: localBusiness },
       { id: "organization", data: organization },

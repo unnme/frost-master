@@ -5,6 +5,8 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { particlesOptions } from "@config/particlesConfig";
 
+const LG_BREAKPOINT = 1024;
+
 const ParticlesWrapperComponent = ({
   className = "",
   options = particlesOptions,
@@ -13,6 +15,8 @@ const ParticlesWrapperComponent = ({
   const [engineReady, setEngineReady] = useState(false);
 
   useEffect(() => {
+    if (window.innerWidth < LG_BREAKPOINT) return;
+
     let mounted = true;
 
     initParticlesEngine(async (engine) => {

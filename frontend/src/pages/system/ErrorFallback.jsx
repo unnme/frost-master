@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { RoutePaths } from "@general/RoutePaths.jsx";
+import { ROUTE_PATHS } from "@general/routePaths.js";
 
 export const ErrorFallback = ({ error, resetErrorBoundary }) => {
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ export const ErrorFallback = ({ error, resetErrorBoundary }) => {
         <button
           onClick={() => {
             resetErrorBoundary();
-            navigate(RoutePaths.HOME);
+            navigate(ROUTE_PATHS.HOME);
           }}
           className="rounded bg-blue-600 px-6 py-2 text-white hover:bg-blue-700"
         >

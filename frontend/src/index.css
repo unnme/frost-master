@@ -1,26 +1,62 @@
 @import "./assets/fonts/fonts.css";
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
+  /* Core brand colors */
   --color-main-light: #f7f6f1;
   --color-main-dark: #525252;
   --color-main-orange: #c94b0a;
   --color-text-disabled: hsl(217 10% 50% / 0.6);
 
+  /* Semantic accent colors */
+  --color-accent-blue: #3b82f6;
+  --color-accent-green: #22c55e;
+  --color-accent-yellow: #eab308;
+  --color-accent-red: #f87171;
+
+  /* Brand-specific */
+  --color-brand-frost: #1e3a5f;
+  --color-highlight: #facc15;
+  --color-accent-indigo: #405599;
+
+  /* Gradient stops */
+  --color-gradient-soft-start: #d6d6da;
+  --color-gradient-soft-mid: #f3f2eb;
+  --color-gradient-soft-end: #d4d8df;
+  --color-gradient-strong-start: #4c4f96;
+  --color-gradient-strong-mid: #405599;
+  --color-gradient-strong-end: #3d599d;
+
+  /* Social hover colors */
+  --color-social-telegram: #60a5fa;
+  --color-social-whatsapp: #4ade80;
+
   --font-sans: "Manrope", system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  --breakpoint-custombp: 920px;
 }
 
 @layer components {
   .gradient-blue-soft {
-    background-image: linear-gradient(to top right, #d6d6da, #f3f2eb, #d4d8df);
+    background-image: linear-gradient(
+      to top right,
+      var(--color-gradient-soft-start),
+      var(--color-gradient-soft-mid),
+      var(--color-gradient-soft-end)
+    );
   }
 
   .gradient-blue-strong {
-    background-image: linear-gradient(to right, #4c4f96, #405599, #3d599d);
+    background-image: linear-gradient(
+      to right,
+      var(--color-gradient-strong-start),
+      var(--color-gradient-strong-mid),
+      var(--color-gradient-strong-end)
+    );
   }
 }
 
-@custom-media --custombp (min-width: 920px);
 
 @layer base {
   html,
@@ -65,22 +101,6 @@
 
   .animate-marquee:hover {
     animation-play-state: paused;
-  }
-
-  @keyframes fadeSlideIn {
-    0% {
-      opacity: 0;
-      transform: translateX(-40px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  .fade-slide-in {
-    opacity: 0;
-    animation: fadeSlideIn 0.6s ease-out forwards;
   }
 
   @keyframes spinSlow {

@@ -1,28 +1,25 @@
-import { AiOutlineFileProtect } from "react-icons/ai";
-import { GoStar } from "react-icons/go";
-import { GrCompliance } from "react-icons/gr";
-import { LuUserCheck } from "react-icons/lu";
+import { CircleCheckBig, UserCheck, ShieldCheck, Star } from "lucide-react";
 
 const stats = [
   {
     value: "10 тыс.",
     label: "Успешных ремонтов",
-    icon: <GrCompliance className="text-blue-500" />,
+    icon: <CircleCheckBig className="text-accent-blue" />,
   },
   {
     value: "10",
     label: "Лет в профессии",
-    icon: <LuUserCheck className="text-orange-500" />,
+    icon: <UserCheck className="text-main-orange" />,
   },
   {
     value: "11",
     label: "Месяцев гарантии",
-    icon: <AiOutlineFileProtect className="text-green-500" />,
+    icon: <ShieldCheck className="text-accent-green" />,
   },
   {
     value: "4.9",
     label: "Высокая оценка клиентов",
-    icon: <GoStar className="text-yellow-500" />,
+    icon: <Star className="text-accent-yellow" />,
   },
 ];
 

@@ -1,6 +1,10 @@
 import { SeoHead } from "@components/common/SeoHead";
-import { RoutePaths } from "@general/RoutePaths.jsx";
+import { SITE_CONFIG } from "@config/siteConfig";
+import { ROUTE_PATHS } from "@general/routePaths.js";
 import { Link } from "react-router-dom";
+
+const { phone, email, address } = SITE_CONFIG.contacts;
+const { siteUrl } = SITE_CONFIG;
 
 export default function Privacy() {
   return (
@@ -11,20 +15,15 @@ export default function Privacy() {
         canonical="/privacy"
       />
       <div className="mx-auto max-w-4xl px-6 py-12 text-main-dark">
-        <h1 className="mb-8 text-4xl font-bold">Политика конфиденциальности</h1>
+        <article className="prose prose-sm max-w-none prose-headings:text-main-dark prose-a:text-main-orange hover:prose-a:underline prose-a:no-underline">
+          <h1>Политика конфиденциальности</h1>
 
-        <div className="space-y-6 text-sm leading-relaxed">
           <section>
-            <h2 className="mb-3 text-xl font-semibold">1. Общие положения</h2>
-            <p className="mb-3">
+            <h2>1. Общие положения</h2>
+            <p>
               Настоящая Политика конфиденциальности определяет порядок обработки
               и защиты персональных данных пользователей сайта{" "}
-              <a
-                href="https://frost-master.com"
-                className="text-main-orange hover:underline"
-              >
-                frost-master.com
-              </a>{" "}
+              <a href={siteUrl}>frost-master.com</a>{" "}
               (далее — Сайт), принадлежащего индивидуальному предпринимателю
               (далее — Оператор).
             </p>
@@ -36,14 +35,12 @@ export default function Privacy() {
           </section>
 
           <section>
-            <h2 className="mb-3 text-xl font-semibold">
-              2. Персональные данные, которые мы собираем
-            </h2>
-            <p className="mb-3">
+            <h2>2. Персональные данные, которые мы собираем</h2>
+            <p>
               При использовании Сайта мы можем собирать следующие персональные
               данные:
             </p>
-            <ul className="ml-6 list-disc space-y-2">
+            <ul>
               <li>Имя</li>
               <li>Номер телефона</li>
               <li>IP-адрес</li>
@@ -52,13 +49,11 @@ export default function Privacy() {
           </section>
 
           <section>
-            <h2 className="mb-3 text-xl font-semibold">
-              3. Цели обработки персональных данных
-            </h2>
-            <p className="mb-3">
+            <h2>3. Цели обработки персональных данных</h2>
+            <p>
               Персональные данные обрабатываются в следующих целях:
             </p>
-            <ul className="ml-6 list-disc space-y-2">
+            <ul>
               <li>
                 Обработка заявок на обратный звонок и консультацию по ремонту
                 холодильников
@@ -72,9 +67,7 @@ export default function Privacy() {
           </section>
 
           <section>
-            <h2 className="mb-3 text-xl font-semibold">
-              4. Способы обработки персональных данных
-            </h2>
+            <h2>4. Способы обработки персональных данных</h2>
             <p>
               Обработка персональных данных осуществляется с использованием
               средств автоматизации и без использования таких средств. Оператор
@@ -86,9 +79,7 @@ export default function Privacy() {
           </section>
 
           <section>
-            <h2 className="mb-3 text-xl font-semibold">
-              5. Сроки хранения персональных данных
-            </h2>
+            <h2>5. Сроки хранения персональных данных</h2>
             <p>
               Персональные данные хранятся в течение срока, необходимого для
               достижения целей обработки, или в течение срока, установленного
@@ -97,11 +88,9 @@ export default function Privacy() {
           </section>
 
           <section>
-            <h2 className="mb-3 text-xl font-semibold">
-              6. Права субъектов персональных данных
-            </h2>
-            <p className="mb-3">Пользователь имеет право:</p>
-            <ul className="ml-6 list-disc space-y-2">
+            <h2>6. Права субъектов персональных данных</h2>
+            <p>Пользователь имеет право:</p>
+            <ul>
               <li>
                 Получать информацию, касающуюся обработки его персональных
                 данных
@@ -116,24 +105,20 @@ export default function Privacy() {
           </section>
 
           <section>
-            <h2 className="mb-3 text-xl font-semibold">
-              7. Контактная информация
-            </h2>
-            <p className="mb-3">
+            <h2>7. Контактная информация</h2>
+            <p>
               По всем вопросам, связанным с обработкой персональных данных, вы
               можете обращаться:
             </p>
-            <ul className="ml-6 list-disc space-y-2">
-              <li>Телефон: +7 (927) 918-88-18</li>
-              <li>Email: whereisxur@icloud.com</li>
-              <li>Адрес: г. Краснодар, Бжегокайская 31/3 к3</li>
+            <ul>
+              <li>Телефон: {phone}</li>
+              <li>Email: {email}</li>
+              <li>Адрес: {address}</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="mb-3 text-xl font-semibold">
-              8. Изменения в Политике конфиденциальности
-            </h2>
+            <h2>8. Изменения в Политике конфиденциальности</h2>
             <p>
               Оператор оставляет за собой право вносить изменения в настоящую
               Политику конфиденциальности. Новая редакция Политики вступает в
@@ -142,19 +127,17 @@ export default function Privacy() {
             </p>
           </section>
 
-          <section>
-            <p className="text-xs text-main-dark/60">
-              Дата последнего обновления: 15 января 2026 г.
-            </p>
-          </section>
-        </div>
+          <p className="text-xs text-main-dark/60">
+            Дата последнего обновления: 15 января 2026 г.
+          </p>
+        </article>
 
         <div className="mt-12">
           <Link
-            to={RoutePaths.HOME}
+            to={ROUTE_PATHS.HOME}
             className="text-main-orange hover:underline"
           >
-            ← Вернуться на главную
+            &larr; Вернуться на главную
           </Link>
         </div>
       </div>

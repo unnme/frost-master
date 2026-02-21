@@ -1,7 +1,9 @@
 import { useInViewOnce } from "@/hooks/useInViewOnce";
 import wrench from "@images/hand_with_wrench.png";
 
-export const HeroBanner = () => {
+const DEFAULT_HEADING = ["Ремонт холодильников в Краснодаре", "и Адыгее"];
+
+export const HeroBanner = ({ heading = DEFAULT_HEADING }) => {
   const [ref, isVisible] = useInViewOnce();
 
   return (
@@ -10,10 +12,10 @@ export const HeroBanner = () => {
       <div className="z-10 flex flex-1 flex-col px-6 sm:items-center lg:items-start">
         <h1 className="text-left sm:text-center lg:text-left">
           <span className="mb-1 block text-3xl font-extrabold text-main-light sm:text-4xl lg:text-5xl lg:font-bold">
-            Ремонт холодильников в Краснодаре
+            {heading[0]}
           </span>
           <span className="mb-1 block text-3xl font-extrabold text-main-light sm:text-4xl md:mt-1 lg:text-5xl lg:font-bold">
-            и Адыгее
+            {heading[1]}
           </span>
         </h1>
 

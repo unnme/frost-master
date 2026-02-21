@@ -110,7 +110,6 @@ export const SeoHead = ({
     // Yandex specific meta tags
     const yandexTags = {
       "yandex-verification": "196ea4b11cfdba4c",
-      "geo.region": "RU-KDA",
       "geo.placename": "Краснодар",
       "geo.position": "45.0355;38.9753",
       ICBM: "45.0355, 38.9753",
@@ -126,6 +125,19 @@ export const SeoHead = ({
       meta.setAttribute("content", content);
     });
 
+    // Geo regions (multiple regions served)
+    const geoRegions = ["RU-KDA", "RU-AD"];
+    const existingRegionMetas = document.querySelectorAll(
+      'meta[name="geo.region"]',
+    );
+    existingRegionMetas.forEach((meta) => meta.remove());
+    geoRegions.forEach((region) => {
+      const meta = document.createElement("meta");
+      meta.setAttribute("name", "geo.region");
+      meta.setAttribute("content", region);
+      document.head.appendChild(meta);
+    });
+
     // Canonical URL always points to preferred domain (without www)
     // This ensures search engines always use https://frost-master.com as the primary URL
     // Even if user visits https://www.frost-master.com, canonical will point to non-www version
@@ -133,7 +145,7 @@ export const SeoHead = ({
     // Additional SEO meta tags
     const additionalTags = {
       keywords:
-        "ремонт холодильников, ремонт холодильников Краснодар, ремонт холодильников Адыгея, мастер по ремонту холодильников, ремонт холодильного оборудования, выезд мастера, ремонт на дому, ремонт холодильников на дому Краснодар",
+        "ремонт холодильников, ремонт холодильников Краснодар, ремонт холодильников Адыгея, ремонт холодильников Яблоновский, ремонт холодильников Энем, ремонт холодильников Тахтамукай, мастер по ремонту холодильников, ремонт холодильного оборудования, выезд мастера, ремонт на дому, ремонт холодильников на дому Краснодар",
       author: "Frost-Master",
       "format-detection": "telephone=yes",
     };

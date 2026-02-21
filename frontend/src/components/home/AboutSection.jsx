@@ -14,7 +14,7 @@ import { cn } from "@utils/cn";
 import { ServiceList } from "./aboutSection/ServiceList";
 import { RepairTagsBar } from "./heroSection/RepairTagsBar";
 
-import { Wrench, CircleHelp, WrenchIcon } from "lucide-react";
+import { ConciergeBell, ListOrdered, CircleHelp } from "lucide-react";
 
 import thought from "@images/thought.png";
 import masterIMG from "@images/master.png";
@@ -55,9 +55,9 @@ export const AboutSection = () => {
 
 				<div className="pb-10 px-6 md:px-8">
 					<h2 className="flex items-center gap-3 text-4xl font-extrabold text-main-dark/90">
-						<WrenchIcon className="h-9 w-9 shrink-0 text-main-orange" />
+						<ConciergeBell className="h-9 w-9 shrink-0 text-main-orange" />
 						Услуги
-						<span className="mt-1 h-0.5 flex-1 bg-highlight" />
+						<span className="mt-1 h-0.5 flex-1 bg-main-orange/35" />
 					</h2>
 					<p className="mt-2 text-main-dark/70">Полный спектр услуг по ремонту холодильников</p>
 				</div>
@@ -72,32 +72,38 @@ export const AboutSection = () => {
 
 			{/* StepsAndPriceBlock */}
 			<div className="relative pt-10 lg:pb-10">
+				{/* Hidden on mobile, right-side background on md+ */}
 				<SectionBackground
 					variant="right"
-					className="max-h-250 md:max-h-170 lg:max-h-full"
+					className="hidden max-h-250 md:max-h-170 lg:max-h-full"
 				/>
 
-				<div className="pb-10">
-					<div
-						ref={stepsRef}
-						className={cn(
-							"px-6 transition-all duration-1200 ease-out md:px-8",
-							stepsVisible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0",
-						)}
-					>
-						<h2 className="flex items-center gap-3 text-4xl font-extrabold text-main-dark/90">
-							<Wrench className="h-9 w-9 shrink-0 text-main-orange" />
-							Как мы работаем
-							<span className="mt-1 h-0.5 flex-1 bg-highlight" />
-						</h2>
-					</div>
-				</div>
-
 				<div className="grid gap-y-16 md:gap-y-30 lg:grid-cols-[2fr_1.5fr]">
-					<div className="pt-3 px-6 md:px-8">
-						<StepList />
+					{/* Steps column with mobile-only background */}
+					<div className="relative py-10 md:py-0 md:pb-10">
+						<SectionBackground variant="full" className="md:hidden" />
+
+						<div
+							ref={stepsRef}
+							className={cn(
+								"px-6 pb-10 transition-all duration-1200 ease-out md:px-8",
+								stepsVisible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0",
+							)}
+						>
+							<h2 className="flex items-center gap-3 text-4xl font-extrabold text-main-dark/90">
+								<ListOrdered className="h-9 w-9 shrink-0 text-main-orange" />
+								Как мы работаем
+								<span className="mt-1 h-0.5 flex-1 bg-main-orange/35" />
+							</h2>
+							<p className="mt-2 text-main-dark/70">Прозрачный процесс — от звонка до готового результата</p>
+						</div>
+
+						<div className="pt-3 px-6 md:px-8">
+							<StepList />
+						</div>
 					</div>
-					<div className="px-6 md:px-8 lg:px-0">
+
+					<div className="px-0 sm:px-6 md:px-8 lg:px-0">
 						<PriceList />
 					</div>
 				</div>
@@ -123,8 +129,9 @@ export const AboutSection = () => {
 						<h2 className="flex items-center gap-3 text-4xl font-extrabold text-main-dark/90">
 							<CircleHelp className="h-9 w-9 shrink-0 text-main-orange" />
 							Часто задаваемые вопросы
-							<span className="mt-1 h-0.5 flex-1 bg-highlight" />
+							<span className="mt-1 h-0.5 flex-1 bg-main-orange/35" />
 						</h2>
+						<p className="mt-2 text-main-dark/70">Ответы на популярные вопросы о ремонте холодильников</p>
 					</div>
 				</div>
 

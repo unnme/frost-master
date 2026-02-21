@@ -25,14 +25,14 @@ export const Layout = ({ children }) => {
         </header>
 
         {/* Content */}
-        <div className="mt-[calc(var(--navbar-height)+1rem)] min-h-[calc(100vh-var(--navbar-height)-1rem)]">
-          <div className="overflow-hidden border-main-dark/10 bg-main-dark/10 backdrop-blur md:border lg:rounded-2xl">
+        <div className="mt-[calc(var(--navbar-height)+5px)] min-h-[calc(100vh-var(--navbar-height)-5px)] lg:mt-[calc(var(--navbar-height)+1rem)] lg:min-h-[calc(100vh-var(--navbar-height)-1rem)]">
+          <div className="overflow-hidden border-main-dark/10 bg-main-dark/10 pb-[calc(var(--footer-height)+5px)] backdrop-blur md:border lg:rounded-2xl lg:pb-0">
             {children}
           </div>
         </div>
 
         {/* Footer */}
-        <div className="pt-20">
+        <div className="lg:pt-20">
           <Footer />
         </div>
       </div>

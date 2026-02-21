@@ -1,9 +1,9 @@
 import { useCallback, useState } from "react";
-import { HiBars3, HiXMark } from "react-icons/hi2";
+import { Menu, X } from "lucide-react";
 
 import { useActiveSection } from "@hooks/useActiveSection";
 import { useCloseOnScroll } from "./useCloseOnScroll";
-import { GENERAL_DATA } from "@config/generalData";
+import { SITE_CONFIG } from "@config/siteConfig";
 import { NAV_ITEMS } from "@config/navItems";
 
 import { DesktopNav } from "./DesktopNav";
@@ -11,7 +11,7 @@ import { MobileNav } from "./MobileNav";
 import { ContactsBlock } from "./ContactsBlock";
 
 export const Navbar = () => {
-  const { phone, telHref, telegramUrl, whatsappUrl } = GENERAL_DATA.contacts;
+  const { phone, telHref, telegramUrl, whatsappUrl } = SITE_CONFIG.contacts;
 
   const [open, setOpen] = useState(false);
   const activeId = useActiveSection(NAV_ITEMS.map(({ id }) => id));
@@ -35,9 +35,9 @@ export const Navbar = () => {
             className="hover:text-text-dark inline-flex items-center justify-center text-main-dark/60 transition-colors md:hidden"
           >
             {open ? (
-              <HiXMark className="h-7 w-7" />
+              <X className="h-7 w-7" />
             ) : (
-              <HiBars3 className="h-7 w-7" />
+              <Menu className="h-7 w-7" />
             )}
           </button>
 

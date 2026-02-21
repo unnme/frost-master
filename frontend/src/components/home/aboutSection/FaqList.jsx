@@ -1,37 +1,6 @@
-import { HiChevronDown } from "react-icons/hi2";
+import { ChevronDown } from "lucide-react";
 import { cn } from "@utils/cn";
-
-const faqItems = [
-  {
-    question: "Сколько стоит выезд?",
-    answer:
-      "Выезд мастера по Краснодару — бесплатно при согласии на ремонт. Если вы откажетесь от работ, оплачивается только диагностика.",
-  },
-  {
-    question: "Сколько занимает ремонт?",
-    answer:
-      "Ремонт обычно занимает от 30 минут до 2 часов. Зависит от сложности поломки и деталей. Точный срок назовёт мастер после диагностики.",
-  },
-  {
-    question: "Что если мастер не починит?",
-    answer:
-      "Если починка невозможна или экономически нецелесообразна, вы оплачиваете только диагностику. Никаких скрытых платежей.",
-  },
-  {
-    question: "Есть ли гарантия?",
-    answer:
-      "Да, на все виды работ и запчасти предоставляем гарантию от 3 до 12 месяцев.",
-  },
-  {
-    question: "Какие бренды ремонтируете?",
-    answer:
-      "Ремонтируем большинство брендов: Samsung, LG, Bosch, Indesit, Atlant, Ariston, Beko, Haier и другие.",
-  },
-  {
-    question: "Работаете в выходные?",
-    answer: "Да, выезжаем ежедневно — включая выходные и праздники.",
-  },
-];
+import { FAQ_ITEMS } from "@config/faqItems";
 
 const FaqItem = ({ item, isOpen, onToggle }) => {
   return (
@@ -44,7 +13,7 @@ const FaqItem = ({ item, isOpen, onToggle }) => {
         <span className="text-base font-medium text-main-dark">
           {item.question}
         </span>
-        <HiChevronDown
+        <ChevronDown
           className={cn(
             "h-5 w-5 text-main-dark/70 transition-transform duration-300",
             isOpen && "rotate-180",
@@ -69,7 +38,7 @@ const FaqItem = ({ item, isOpen, onToggle }) => {
 export const FaqList = ({ openIndex, toggle }) => {
   return (
     <div className="space-y-3">
-      {faqItems.map((item, index) => (
+      {FAQ_ITEMS.map((item, index) => (
         <FaqItem
           key={item.question}
           item={item}

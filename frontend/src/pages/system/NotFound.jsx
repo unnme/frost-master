@@ -1,5 +1,5 @@
 import { SeoHead } from "@components/common/SeoHead";
-import { RoutePaths } from "@general/RoutePaths.jsx";
+import { ROUTE_PATHS } from "@general/routePaths.js";
 import { useNavigate } from "react-router-dom";
 
 export default function NotFound() {
@@ -24,7 +24,7 @@ export default function NotFound() {
         </p>
 
         <button
-          onClick={() => navigate(RoutePaths.HOME)}
+          onClick={() => navigate(ROUTE_PATHS.HOME)}
           type="button"
           className="rounded-xl bg-main-orange px-6 py-3 text-sm font-semibold text-white transition hover:bg-main-orange/90"
         >

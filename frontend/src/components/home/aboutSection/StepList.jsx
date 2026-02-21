@@ -1,55 +1,5 @@
-import { BsFillClipboard2CheckFill, BsGearFill } from "react-icons/bs";
-import { HiMiniWrenchScrewdriver } from "react-icons/hi2";
-import { FaTruckFast } from "react-icons/fa6";
-import { GiTalk } from "react-icons/gi";
-
 import { useInViewOnce } from "@hooks/useInViewOnce";
-
-// ------------------------
-//         DATA
-// ------------------------
-const steps = [
-  {
-    id: 1,
-    title: "Заполнение заявки",
-    time: "2 МИН",
-    icon: BsFillClipboard2CheckFill,
-    description:
-      "Вы оставляете заявку через сайт или звоните — я перезваниваю в ближайшее время.",
-  },
-  {
-    id: 2,
-    title: "Телефонная\nконсультация",
-    time: "5 МИН",
-    icon: GiTalk,
-    description:
-      "Уточняю проблему, задаю вопросы и предварительно определяю характер поломки.",
-  },
-  {
-    id: 3,
-    title: "Мастер приезжает\nна дом",
-    time: "~60 МИН",
-    icon: FaTruckFast,
-    description:
-      "Приезжаю в оговорённое время, привожу инструменты и необходимые материалы.",
-  },
-  {
-    id: 4,
-    title: "Диагностика",
-    time: "10 МИН",
-    icon: BsGearFill,
-    description:
-      "Провожу точную диагностику техники и определяю окончательную стоимость ремонта.",
-  },
-  {
-    id: 5,
-    title: "Ремонт",
-    time: "10–60 МИН",
-    icon: HiMiniWrenchScrewdriver,
-    description:
-      "Выполняю ремонт на месте, предоставляю гарантию на выполненные работы.",
-  },
-];
+import { STEPS } from "@config/steps";
 
 // ------------------------
 //        STEP UNIT
@@ -82,7 +32,7 @@ export const StepUnit = ({ step, index, visible }) => {
       </div>
 
       {/* Time badge */}
-      <div className="text-md absolute -top-3 -right-4 z-20 rounded-sm bg-main-orange px-2.5 font-semibold text-main-light transition-transform duration-300 group-hover:scale-105">
+      <div className="text-md absolute -top-3 -right-4 z-20 rounded-sm bg-brand-frost px-2.5 font-semibold text-main-light transition-transform duration-300 group-hover:scale-105">
         {step.time}
       </div>
     </div>
@@ -93,18 +43,18 @@ export const StepUnit = ({ step, index, visible }) => {
 //        STEP GROUP
 // ------------------------
 export const StepList = () => {
-  const [ref, visible] = useInViewOnce();
+  const [ref, visible] = useInViewOnce(0.1);
 
   return (
     <div
       ref={ref}
       className="grid gap-y-8 md:grid-cols-2 lg:grid-cols-1"
     >
-      {steps.map((step, index) => (
+      {STEPS.map((step, index) => (
         <div
           key={step.id}
           className={`flex flex-col items-center gap-6 lg:flex-row ${
-            index === steps.length - 1
+            index === STEPS.length - 1
               ? "md:col-span-2 md:justify-self-center lg:col-span-1 lg:justify-self-start"
               : ""
           }`}

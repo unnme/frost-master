@@ -12,7 +12,7 @@ export const useElementHeight = (ref) => {
     if (ref.current) {
       setHeight(ref.current.scrollHeight);
     }
-  }, []);
+  }, [ref]);
 
   useEffect(() => {
     const element = ref.current;
@@ -27,7 +27,7 @@ export const useElementHeight = (ref) => {
       observer.unobserve(element);
       observer.disconnect();
     };
-  }, [updateHeight]);
+  }, [ref, updateHeight]);
 
   return [height, updateHeight];
 };
