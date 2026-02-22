@@ -65,16 +65,18 @@ export const PriceBenefits = () => {
         </h2>
 
         {/* Benefit Items */}
-        {PRICE_BENEFITS.map(({ title, text }) => (
+        {PRICE_BENEFITS.map(({ icon: Icon, title, text }) => (
           <div
             key={title}
-            className="flex flex-col lg:px-4 lg:pr-8"
+            className="flex gap-4 lg:px-4 lg:pr-8"
           >
-            <div className="flex items-center gap-4">
-              <span className="block h-2 w-2 shrink-0 rounded-full bg-main-orange" />
-              <h3 className="text-md font-semibold">{title}</h3>
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-main-orange/10">
+              <Icon className="h-5 w-5 text-main-orange" />
             </div>
-            <p className="ml-6 text-sm text-main-dark/80">{text}</p>
+            <div>
+              <h3 className="text-md font-semibold">{title}</h3>
+              <p className="mt-0.5 text-sm text-main-dark/80">{text}</p>
+            </div>
           </div>
         ))}
       </div>

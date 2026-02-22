@@ -3,8 +3,8 @@ export const SITE_CONFIG = {
   brandName: "Frost-Master",
 
   contacts: {
-    phone: "+7 (927) 918-88-18",
-    telHref: "tel:+79279188818",
+    phone: "+7 (993) 443-39-56",
+    telHref: "tel:+79934433956",
     email: "whereisxur@icloud.com",
     address: "г. Краснодар, Бжегокайская 31/3 к3",
     streetAddress: "Бжегокайская 31/3 к3",

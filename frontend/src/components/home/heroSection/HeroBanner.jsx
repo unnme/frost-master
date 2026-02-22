@@ -1,10 +1,13 @@
+import { Phone } from "lucide-react";
 import { useInViewOnce } from "@/hooks/useInViewOnce";
+import { SITE_CONFIG } from "@config/siteConfig";
 import wrench from "@images/hand_with_wrench.png";
 
 const DEFAULT_HEADING = ["Ремонт холодильников в Краснодаре", "и Адыгее"];
 
 export const HeroBanner = ({ heading = DEFAULT_HEADING }) => {
   const [ref, isVisible] = useInViewOnce();
+  const { phone, telHref } = SITE_CONFIG.contacts;
 
   return (
     <div className="gradient-blue-strong relative flex h-100 items-center">
@@ -24,6 +27,15 @@ export const HeroBanner = ({ heading = DEFAULT_HEADING }) => {
             Быстро, качественно, недорого.
           </span>
         </p>
+
+        <a
+          href={telHref}
+          className="mt-5 inline-flex cursor-pointer items-center gap-2 rounded-xl bg-main-orange px-6 py-3 text-lg font-bold text-main-light transition-opacity duration-200 hover:opacity-90 sm:self-center lg:self-start"
+          aria-label={`Позвонить по номеру ${phone}`}
+        >
+          <Phone className="h-5 w-5 shrink-0" />
+          {phone}
+        </a>
       </div>
 
       {/* Animated image */}

@@ -1,6 +1,7 @@
 import { Footer } from "@components/Footer";
 import { Navbar } from "@components/Navbar";
 import { ParticlesWrapper } from "@components/common/ParticlesWrapper";
+import { FloatingCallButton } from "@components/common/FloatingCallButton";
 import { useScrollDirection } from "@hooks/useScrollDirection";
 import { ErrorFallback } from "@pages/system/ErrorFallback.jsx";
 import { cn } from "@utils/cn";
@@ -36,6 +37,7 @@ export const Layout = ({ children }) => {
           <Footer />
         </div>
       </div>
+      <FloatingCallButton />
     </ErrorBoundary>
   );
 };

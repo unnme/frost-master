@@ -2,7 +2,7 @@ import { CircleCheckBig, UserCheck, ShieldCheck, Star } from "lucide-react";
 
 const stats = [
   {
-    value: "10 тыс.",
+    value: "1 500+",
     label: "Успешных ремонтов",
     icon: <CircleCheckBig className="text-accent-blue" />,
   },
