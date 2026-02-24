@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 import { useActiveSection } from "@hooks/useActiveSection";
+import { useContactsVisible } from "@hooks/useContactsVisible";
 import { useCloseOnScroll } from "./useCloseOnScroll";
 import { SITE_CONFIG } from "@config/siteConfig";
 import { NAV_ITEMS } from "@config/navItems";
@@ -11,10 +12,11 @@ import { MobileNav } from "./MobileNav";
 import { ContactsBlock } from "./ContactsBlock";
 
 export const Navbar = () => {
-  const { phone, telHref, telegramUrl, whatsappUrl } = SITE_CONFIG.contacts;
+  const { phone, telHref, telegramUrl, whatsappUrl, maxUrl } = SITE_CONFIG.contacts;
 
   const [open, setOpen] = useState(false);
   const activeId = useActiveSection(NAV_ITEMS.map(({ id }) => id));
+  const contactsVisible = useContactsVisible();
 
   const toggleMenu = () => setOpen((p) => !p);
 
@@ -26,7 +28,7 @@ export const Navbar = () => {
 
   return (
     <div>
-      <div className="border-x border-b-5 border-main-dark/20 bg-main-dark/10 px-6 backdrop-blur md:px-8 lg:rounded-b-2xl">
+      <div className="border-x border-b-5 border-main-dark/20 bg-main-light px-6 md:px-8 lg:rounded-b-2xl">
         <div className="flex h-(--navbar-height) items-center justify-between">
           {/* Mobile menu toggle */}
           <button
@@ -53,6 +55,8 @@ export const Navbar = () => {
             telHref={telHref}
             telegramUrl={telegramUrl}
             whatsappUrl={whatsappUrl}
+            maxUrl={maxUrl}
+            hidePhone={!contactsVisible}
           />
         </div>
       </div>

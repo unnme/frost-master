@@ -1,8 +1,15 @@
+import { cn } from "@utils/cn";
 import { useInViewOnce } from "@hooks/useInViewOnce";
 import { PRICE_BENEFITS } from "@config/benefits";
 
+const slideLeft = (isVisible) => cn("inline-block", isVisible && "slide-in-left");
+
+const slideRight = (isVisible) => cn(
+  "inline-block bg-main-orange/90 px-1 pb-1 text-main-light",
+  isVisible && "slide-in-right",
+);
+
 export const PriceBenefits = () => {
-  // Single observer for the whole block
   const [containerRef, isVisible] = useInViewOnce();
 
   return (
@@ -17,47 +24,18 @@ export const PriceBenefits = () => {
 
         {/* Title */}
         <h2 className="px-10 text-center text-4xl font-extrabold text-main-dark/90 lg:text-left">
-          <span className={`inline-block ${isVisible ? "slide-in-left" : ""}`}>
-            Почему&nbsp;
-          </span>
-
-          <span
-            className={`inline-block bg-main-orange/90 px-1 pb-1 text-main-light ${
-              isVisible ? "slide-in-right" : ""
-            }`}
-          >
-            наши&nbsp;
-          </span>
-
-          <span className={`inline-block ${isVisible ? "slide-in-left" : ""}`}>
-            цены ниже&nbsp;
-          </span>
-
-          <span
-            className={`inline-block bg-main-orange/90 px-1 pb-1 text-main-light ${
-              isVisible ? "slide-in-right" : ""
-            }`}
-          >
-            на&nbsp;
-          </span>
-
-          <span className={`inline-block ${isVisible ? "slide-in-left" : ""}`}>
-            средних&nbsp;
-          </span>
-
+          <span className={slideLeft(isVisible)}>Почему&nbsp;</span>
+          <span className={slideRight(isVisible)}>наши&nbsp;</span>
+          <span className={slideLeft(isVisible)}>цены ниже&nbsp;</span>
+          <span className={slideRight(isVisible)}>на&nbsp;</span>
+          <span className={slideLeft(isVisible)}>средних&nbsp;</span>
           <span className="whitespace-nowrap">
+            <span className={slideRight(isVisible)}>10%</span>
             <span
-              className={`inline-block bg-main-orange/90 px-1 pb-1 text-main-light ${
-                isVisible ? "slide-in-right" : ""
-              }`}
-            >
-              10%
-            </span>
-
-            <span
-              className={`inline-block text-4xl font-semibold transition-opacity duration-2000 ${
-                isVisible ? "spin-every-8s opacity-100" : "opacity-0"
-              }`}
+              className={cn(
+                "inline-block text-4xl font-semibold transition-opacity duration-2000",
+                isVisible ? "spin-every-8s opacity-100" : "opacity-0",
+              )}
             >
               ?
             </span>
@@ -70,7 +48,7 @@ export const PriceBenefits = () => {
             key={title}
             className="flex gap-4 lg:px-4 lg:pr-8"
           >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-main-orange/10">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-main-orange/5 border border-main-orange/30">
               <Icon className="h-5 w-5 text-main-orange" />
             </div>
             <div>

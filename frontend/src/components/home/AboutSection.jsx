@@ -6,7 +6,6 @@ import { StepList } from "./aboutSection/StepList";
 import { PriceList } from "./aboutSection/PriceList";
 
 import { useState, useRef } from "react";
-import { useElementHeight } from "@hooks/useElementHeight";
 import { useInViewOnce } from "@hooks/useInViewOnce";
 import { SectionBackground } from "@components/common/SectionBackground";
 import { cn } from "@utils/cn";
@@ -16,19 +15,19 @@ import { RepairTagsBar } from "./heroSection/RepairTagsBar";
 
 import { ConciergeBell, ListOrdered, CircleHelp } from "lucide-react";
 
-import thought from "@images/thought.png";
+import faqIMG from "@images/faq.jpg";
 import masterIMG from "@images/master.png";
 
+const sectionTitleCls = "flex items-center justify-center gap-3 text-4xl font-extrabold text-main-dark/90";
+const slideInCls = "px-6 transition-all duration-1200 ease-out md:px-8";
+
 export const AboutSection = () => {
-	const faqRef = useRef(null);
 	const [openIndex, setOpenIndex] = useState(0);
-	const [faqHeight, updateHeight] = useElementHeight(faqRef);
 	const [stepsRef, stepsVisible] = useInViewOnce(0.1);
 	const [faqTitleRef, faqTitleVisible] = useInViewOnce(0.1);
 
 	const toggle = (index) => {
 		setOpenIndex((prev) => (prev === index ? null : index));
-		setTimeout(updateHeight, 20);
 	};
 
 	return (
@@ -38,7 +37,7 @@ export const AboutSection = () => {
 		>
 			{/* MasterInfoBlock */}
 			<div className="grid items-center gap-10 px-6 pb-12 md:px-8 lg:grid-cols-2">
-				<div>
+				<div className="rounded-2xl bg-brand-frost/10 p-6">
 					<AboutMasterText />
 				</div>
 				<img
@@ -54,12 +53,11 @@ export const AboutSection = () => {
 				<SectionBackground variant="full" />
 
 				<div className="pb-10 px-6 md:px-8">
-					<h2 className="flex items-center gap-3 text-4xl font-extrabold text-main-dark/90">
+					<h2 className={sectionTitleCls}>
 						<ConciergeBell className="h-9 w-9 shrink-0 text-main-orange" />
 						Услуги
-						<span className="mt-1 h-0.5 flex-1 bg-main-orange/35" />
 					</h2>
-					<p className="mt-2 text-main-dark/70">Полный спектр услуг по ремонту холодильников</p>
+					<p className="mt-2 text-center text-main-dark/70">Полный спектр услуг по ремонту холодильников</p>
 				</div>
 
 				<ServiceList />
@@ -78,25 +76,25 @@ export const AboutSection = () => {
 					className="hidden max-h-250 md:max-h-170 lg:max-h-full"
 				/>
 
+				{/* Title outside grid so the line spans full width */}
+				<div
+					ref={stepsRef}
+					className={cn(
+						slideInCls, "pb-10",
+						stepsVisible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0",
+					)}
+				>
+					<h2 className={sectionTitleCls}>
+						<ListOrdered className="h-9 w-9 shrink-0 text-main-orange" />
+						Как мы работаем
+					</h2>
+					<p className="mt-2 text-center text-main-dark/70">Прозрачный процесс — от звонка до готового результата</p>
+				</div>
+
 				<div className="grid gap-y-16 md:gap-y-30 lg:grid-cols-[2fr_1.5fr]">
 					{/* Steps column with mobile-only background */}
 					<div className="relative py-10 md:py-0 md:pb-10">
 						<SectionBackground variant="full" className="md:hidden" />
-
-						<div
-							ref={stepsRef}
-							className={cn(
-								"px-6 pb-10 transition-all duration-1200 ease-out md:px-8",
-								stepsVisible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0",
-							)}
-						>
-							<h2 className="flex items-center gap-3 text-4xl font-extrabold text-main-dark/90">
-								<ListOrdered className="h-9 w-9 shrink-0 text-main-orange" />
-								Как мы работаем
-								<span className="mt-1 h-0.5 flex-1 bg-main-orange/35" />
-							</h2>
-							<p className="mt-2 text-main-dark/70">Прозрачный процесс — от звонка до готового результата</p>
-						</div>
 
 						<div className="pt-3 px-6 md:px-8">
 							<StepList />
@@ -122,39 +120,30 @@ export const AboutSection = () => {
 					<div
 						ref={faqTitleRef}
 						className={cn(
-							"px-6 transition-all duration-1200 ease-out md:px-8",
+							slideInCls,
 							faqTitleVisible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0",
 						)}
 					>
-						<h2 className="flex items-center gap-3 text-4xl font-extrabold text-main-dark/90">
+						<h2 className={sectionTitleCls}>
 							<CircleHelp className="h-9 w-9 shrink-0 text-main-orange" />
 							Часто задаваемые вопросы
-							<span className="mt-1 h-0.5 flex-1 bg-main-orange/35" />
 						</h2>
-						<p className="mt-2 text-main-dark/70">Ответы на популярные вопросы о ремонте холодильников</p>
+						<p className="mt-2 text-center text-main-dark/70">Ответы на популярные вопросы о ремонте холодильников</p>
 					</div>
 				</div>
 
-				<div className="flex flex-col items-center justify-between gap-y-10 px-6 md:px-8 min-[1015px]:flex-row">
-					<div
-						className="max-w-xl flex-1 lg:max-w-2xl"
-						ref={faqRef}
-					>
-						<FaqList
-							openIndex={openIndex}
-							toggle={toggle}
-						/>
-					</div>
+				<div className="grid grid-cols-1 gap-10 px-6 md:px-8 min-[1015px]:grid-cols-[1fr_1fr]">
+					<FaqList
+						openIndex={openIndex}
+						toggle={toggle}
+					/>
 
-					<div
-						className="flex w-full max-w-none items-start lg:h-(--faq-height) lg:max-w-xl lg:items-center"
-						style={{ "--faq-height": `${faqHeight}px` }}
-					>
+					<div className="overflow-hidden rounded-2xl min-h-64 sm:min-h-80 min-[1015px]:min-h-0">
 						<img
-							src={thought}
+							src={faqIMG}
 							alt="Часто задаваемые вопросы о ремонте холодильников"
 							loading="lazy"
-							className="max-h-[260px] w-full object-contain sm:max-h-80 lg:max-h-none"
+							className="h-full w-full object-cover"
 						/>
 					</div>
 				</div>

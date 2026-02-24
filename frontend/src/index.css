@@ -31,6 +31,7 @@
   /* Social hover colors */
   --color-social-telegram: #60a5fa;
   --color-social-whatsapp: #4ade80;
+  --color-social-max: #0077ff;
 
   --font-sans: "Manrope", system-ui, Avenir, Helvetica, Arial, sans-serif;
 
@@ -100,6 +101,14 @@
   }
 
   .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  .animate-marquee-reverse {
+    animation: marquee 14s linear infinite reverse;
+  }
+
+  .animate-marquee-reverse:hover {
     animation-play-state: paused;
   }
 
@@ -182,4 +191,5 @@
     animation: rotatePopIn 0.8s ease-out forwards;
     animation-delay: 1s;
   }
+
 }

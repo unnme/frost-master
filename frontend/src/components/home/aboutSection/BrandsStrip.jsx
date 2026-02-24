@@ -45,12 +45,11 @@ export const BrandsStrip = () => {
 			)}
 		>
 			<div className="mb-12 px-6 md:px-8">
-				<h2 className="flex items-center gap-3 text-4xl font-extrabold text-main-dark/90">
+				<h2 className="flex items-center justify-center gap-3 text-4xl font-extrabold text-main-dark/90">
 					<BadgeCheck className="h-9 w-9 shrink-0 text-main-orange" />
 					Обслуживаемые марки
-					<span className="mt-1 h-0.5 flex-1 bg-main-orange/35" />
 				</h2>
-				<p className="mt-2 text-main-dark/60">
+				<p className="mt-2 text-center text-main-dark/60">
 					Ремонтируем холодильники любых производителей
 				</p>
 			</div>
@@ -81,11 +80,10 @@ export const BrandsStrip = () => {
 								key={i}
 								onClick={() => goToPage(i)}
 								aria-label={`Страница ${i + 1}`}
-								className={`h-2 rounded-full transition-all ${
-									activePage === i
-										? "w-6 bg-main-orange"
-										: "w-2 bg-main-orange/30"
-								}`}
+								className={cn(
+									"h-2 rounded-full transition-all cursor-pointer",
+									activePage === i ? "w-6 bg-main-orange" : "w-2 bg-main-orange/30",
+								)}
 							/>
 						))}
 					</div>

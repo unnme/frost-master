@@ -1,24 +1,30 @@
-import { Phone } from "lucide-react";
 import { useInViewOnce } from "@/hooks/useInViewOnce";
-import { SITE_CONFIG } from "@config/siteConfig";
 import wrench from "@images/hand_with_wrench.png";
 
-const DEFAULT_HEADING = ["Ремонт холодильников в Краснодаре", "и Адыгее"];
+const DEFAULT_HEADING = ["Ремонт холодильников", "в Краснодаре и Адыгее"];
 
 export const HeroBanner = ({ heading = DEFAULT_HEADING }) => {
   const [ref, isVisible] = useInViewOnce();
-  const { phone, telHref } = SITE_CONFIG.contacts;
 
   return (
     <div className="gradient-blue-strong relative flex h-100 items-center">
+      {/* Badge */}
+      <div className="absolute top-6 left-6 z-10 inline-flex items-center gap-2.5 rounded-full border border-main-light/20 bg-main-light/10 px-4 py-2">
+        <span className="relative flex h-2.5 w-2.5 shrink-0" aria-hidden="true">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-blue opacity-75" />
+          <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent-blue" />
+        </span>
+        <span className="text-sm font-medium text-main-light">2 500+ успешных ремонтов</span>
+      </div>
+
       {/* Text */}
       <div className="z-10 flex flex-1 flex-col px-6 sm:items-center lg:items-start">
         <h1 className="text-left sm:text-center lg:text-left">
-          <span className="mb-1 block text-3xl font-extrabold text-main-light sm:text-4xl lg:text-5xl lg:font-bold">
-            {heading[0]}
+          <span className="mb-1 block text-4xl font-extrabold text-main-light sm:text-4xl md:text-5xl md:font-bold">
+            Ремонт<br className="hidden lg:block" /> холодильников
           </span>
-          <span className="mb-1 block text-3xl font-extrabold text-main-light sm:text-4xl md:mt-1 lg:text-5xl lg:font-bold">
-            {heading[1]}
+          <span className="mb-1 block text-4xl font-extrabold text-main-light sm:text-4xl md:mt-1 md:text-5xl md:font-bold">
+            <span className="whitespace-nowrap">в Краснодаре</span> и Адыгее
           </span>
         </h1>
 
@@ -28,14 +34,6 @@ export const HeroBanner = ({ heading = DEFAULT_HEADING }) => {
           </span>
         </p>
 
-        <a
-          href={telHref}
-          className="mt-5 inline-flex cursor-pointer items-center gap-2 rounded-xl bg-main-orange px-6 py-3 text-lg font-bold text-main-light transition-opacity duration-200 hover:opacity-90 sm:self-center lg:self-start"
-          aria-label={`Позвонить по номеру ${phone}`}
-        >
-          <Phone className="h-5 w-5 shrink-0" />
-          {phone}
-        </a>
       </div>
 
       {/* Animated image */}

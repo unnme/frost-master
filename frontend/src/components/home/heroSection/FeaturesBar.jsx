@@ -2,7 +2,7 @@ import { FEATURES } from "@config/features";
 
 export const FeaturesBar = () => (
   <div className="relative overflow-hidden">
-    <div className="block md:hidden">
+    <div className="block lg:hidden">
       <div className="animate-marquee flex w-max gap-10 whitespace-nowrap">
         {FEATURES.concat(FEATURES).map((val, indx) => {
           const Icon = val.icon;
@@ -21,7 +21,7 @@ export const FeaturesBar = () => (
       </div>
     </div>
 
-    <div className="hidden flex-row justify-between md:flex">
+    <div className="hidden flex-row justify-between lg:flex">
       {FEATURES.map((val, indx) => {
         const Icon = val.icon;
         return (

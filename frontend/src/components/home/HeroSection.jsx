@@ -9,8 +9,9 @@ export const HeroSection = ({ heading }) => {
     <section
       id="hero"
       className="scroll-mt-22"
+      aria-labelledby="hero-heading"
     >
-      <div className="overflow-hidden lg:rounded-t-2xl">
+      <div className="overflow-hidden border-b border-main-dark/20 lg:rounded-t-2xl">
         <HeroBanner heading={heading} />
       </div>
 
@@ -20,7 +21,10 @@ export const HeroSection = ({ heading }) => {
 
       <div className="relative md:px-8 lg:px-0 lg:py-10">
         <div className="flex flex-col gap-x-16 gap-y-18 lg:flex-row">
-          <SectionBackground variant="left" className="ml-5 border-r-0 hidden md:hidden lg:block md:rounded-none lg:rounded-l-4xl" />
+          <SectionBackground
+            variant="left"
+            className="ml-5 hidden border-r-0 md:hidden md:rounded-none lg:block lg:rounded-l-4xl"
+          />
           <div className="flex-4">
             <CallbackForm />
           </div>
@@ -29,7 +33,6 @@ export const HeroSection = ({ heading }) => {
           </div>
         </div>
       </div>
-
     </section>
   );
 };

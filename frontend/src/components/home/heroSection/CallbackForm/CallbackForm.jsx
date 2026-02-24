@@ -8,9 +8,16 @@ import { formPoints } from "./config";
 import { formatPhone, validateForm } from "./helpers";
 import { useCallbackRequest, ValidationError } from "./useCallbackRequest";
 
-/**
- * Callback form component with FastAPI error handling
- */
+const getFieldWrapperCls = (hasError) => cn(
+  "flex items-center gap-2 rounded-xl border bg-white p-3",
+  hasError ? "border-red-400" : "border-main-dark/20",
+);
+
+const getCheckboxCls = (hasError) => cn(
+  "h-5 w-5",
+  hasError ? "accent-accent-red" : "accent-accent-indigo",
+);
+
 export const CallbackForm = () => {
   const [form, setForm] = useState({
     name: "",
@@ -170,14 +177,7 @@ export const CallbackForm = () => {
 
             {/* NAME FIELD */}
             <div>
-              <div
-                className={cn(
-                  "flex items-center gap-2 rounded-xl border bg-white p-3",
-                  submitted && errors.name
-                    ? "border-red-400"
-                    : "border-main-dark/20",
-                )}
-              >
+              <div className={getFieldWrapperCls(submitted && errors.name)}>
                 <CircleUser className="h-5 w-5 shrink-0 text-text-disabled" />
                 <input
                   type="text"
@@ -197,14 +197,7 @@ export const CallbackForm = () => {
 
             {/* PHONE FIELD */}
             <div>
-              <div
-                className={cn(
-                  "flex items-center gap-2 rounded-xl border bg-white p-3",
-                  submitted && errors.phone
-                    ? "border-red-400"
-                    : "border-main-dark/20",
-                )}
-              >
+              <div className={getFieldWrapperCls(submitted && errors.phone)}>
                 <Phone className="h-4 w-4 shrink-0 text-text-disabled" />
                 <input
                   type="tel"
@@ -232,12 +225,7 @@ export const CallbackForm = () => {
                   name="agreed"
                   checked={form.agreed}
                   onChange={onChange}
-                  className={cn(
-                    "h-5 w-5",
-                    submitted && errors.agreed
-                      ? "accent-accent-red"
-                      : "accent-accent-indigo",
-                  )}
+                  className={getCheckboxCls(submitted && errors.agreed)}
                 />
                 <label
                   htmlFor="agree"

@@ -26,7 +26,7 @@ export const ServiceList = () => {
                 aria-expanded={isOpen}
                 className="flex w-full items-center gap-3 px-4 py-3 text-left"
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-main-orange/10">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-main-orange/5 border border-main-orange/30">
                   <Icon className="h-5 w-5 text-main-orange" />
                 </div>
                 <span className="flex-1 text-base font-bold text-main-dark">{title}</span>
@@ -59,7 +59,7 @@ export const ServiceList = () => {
             key={title}
             className="rounded-3xl border border-main-dark/10 bg-main-light p-5 shadow-sm"
           >
-            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-main-orange/10">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-main-orange/5 border border-main-orange/30">
               <Icon className="h-6 w-6 text-main-orange" />
             </div>
             <h3 className="mb-2 text-lg font-bold text-main-dark">{title}</h3>

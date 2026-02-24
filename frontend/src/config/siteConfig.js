@@ -13,13 +13,14 @@ export const SITE_CONFIG = {
     postalCode: "385132",
     hours: "Ежедневно, 8:00 – 22:00",
     hoursSchema: "Mo-Su 08:00-22:00",
-    telegramUrl: "https://t.me/yourusername", // TODO: replace with real URL
-    whatsappUrl: "https://wa.me/1234567890", // TODO: replace with real URL
+    telegramUrl: "https://t.me/frost_master_krd",
+    whatsappUrl: "https://wa.me/79934433956",
+    maxUrl: "https://vk.me/frost_master_krd", // TODO: replace with real Max Messenger link
   },
 
   geo: {
-    latitude: "45.0355",
-    longitude: "38.9753",
+    latitude: "45.015511",
+    longitude: "38.917425",
   },
 
   // TODO: add sameAs links (Yandex Maps, 2GIS, social media)
