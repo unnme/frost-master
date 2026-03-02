@@ -2,6 +2,7 @@ import { useState } from "react";
 import { SITE_CONFIG } from "@config/siteConfig";
 
 const SESSION_KEY = "offline_modal_shown";
+const isSSR = typeof window === "undefined";
 
 const isOutsideBusinessHours = () => {
   const { start, end, timezone } = SITE_CONFIG.contacts.businessHours;
@@ -16,7 +17,7 @@ const isOutsideBusinessHours = () => {
 
 export const useAutoOfflineModal = () => {
   const [isOpen, setIsOpen] = useState(
-    () => !sessionStorage.getItem(SESSION_KEY) && isOutsideBusinessHours(),
+    () => !isSSR && !sessionStorage.getItem(SESSION_KEY) && isOutsideBusinessHours(),
   );
 
   const close = () => {

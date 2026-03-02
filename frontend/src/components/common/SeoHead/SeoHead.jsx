@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect } from "react";
 import { SITE_CONFIG } from "@config/siteConfig";
 
 const DEFAULT_SITE_URL = "https://frost-master.com";
@@ -111,9 +111,9 @@ export const SeoHead = ({
     // Yandex specific meta tags
     const yandexTags = {
       "yandex-verification": "196ea4b11cfdba4c",
-      "geo.placename": "Краснодар",
-      "geo.position": "45.0355;38.9753",
-      ICBM: "45.0355, 38.9753",
+      "geo.placename": SITE_CONFIG.contacts.city,
+      "geo.position": SITE_CONFIG.geo.position,
+      ICBM: SITE_CONFIG.geo.icbm,
     };
 
     Object.entries(yandexTags).forEach(([name, content]) => {

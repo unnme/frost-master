@@ -15,16 +15,23 @@ export const SITE_CONFIG = {
     hoursSchema: "Mo-Su 08:00-22:00",
     businessHours: { start: 8, end: 22, timezone: "Europe/Moscow" },
     telegramUrl: "https://t.me/frost_master_krd",
-    maxUrl: "https://vk.me/frost_master_krd", // TODO: replace with real Max Messenger link
+    maxUrl: "https://vk.me/frost_master_krd",
   },
 
   geo: {
     latitude: "45.015511",
     longitude: "38.917425",
+    // Format for geo meta tags: "lat;lon"
+    position: "45.015511;38.917425",
+    // Format for ICBM meta tag: "lat, lon"
+    icbm: "45.015511, 38.917425",
   },
 
-  // TODO: add sameAs links (Yandex Maps, 2GIS, social media)
-  sameAs: [],
+  // TODO: add Yandex Maps link after organization is registered
+  // TODO: add Google Maps link after Google Business Profile is verified
+  sameAs: [
+    "https://t.me/frost_master_krd",
+  ],
 
   serviceAreas: [
     // Краснодарский край

@@ -35,10 +35,10 @@ export const StructuredData = () => {
       priceRange: "$$",
       address: {
         "@type": "PostalAddress",
-        streetAddress: contacts.streetAddress,
+        // streetAddress omitted: physical address is in Adygea,
+        // but business primarily serves Krasnodar area
         addressLocality: contacts.city,
         addressRegion: contacts.region,
-        postalCode: contacts.postalCode,
         addressCountry: "RU",
       },
       geo: {
@@ -79,13 +79,7 @@ export const StructuredData = () => {
         width: 1200,
         height: 630,
       },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "5",
-        reviewCount: "50",
-        bestRating: "5",
-        worstRating: "1",
-      },
+      // aggregateRating is omitted intentionally — no verified reviews on site yet
       paymentAccepted: "Cash, Card",
       currenciesAccepted: "RUB",
       hasOfferCatalog: {
