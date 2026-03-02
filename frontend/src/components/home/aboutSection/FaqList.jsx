@@ -6,7 +6,7 @@ const FaqItem = ({ item, isOpen, onToggle }) => {
   return (
     <div className={cn(
       "rounded-2xl border shadow-md transition-all duration-300",
-      isOpen ? "gradient-blue-strong-faded border-main-light/20" : "border-main-dark/10 bg-main-light",
+      isOpen ? "gradient-blue-strong border-main-light/20" : "border-main-dark/10 bg-main-light",
     )}>
       <button
         type="button"
