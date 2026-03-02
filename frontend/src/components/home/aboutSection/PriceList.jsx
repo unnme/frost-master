@@ -1,7 +1,7 @@
 import { BadgeRussianRuble } from "lucide-react";
 import { PRICES } from "@config/prices";
 export const PriceList = () => (
-  <div className="h-full rounded-none border border-main-dark/10 bg-main-light p-6 shadow-md sm:rounded-3xl lg:rounded-r-none lg:border-r-0">
+  <div data-nosnippet className="h-full rounded-none border border-main-dark/10 bg-main-light p-6 shadow-md sm:rounded-3xl lg:rounded-r-none lg:border-r-0">
     <h3 className="mb-4 flex items-center justify-center gap-2 text-center text-xl font-bold text-main-dark">
       <BadgeRussianRuble className="h-6 w-6 shrink-0 text-main-orange" />
       Наши цены

@@ -12,10 +12,7 @@ export default function RepairKrasnodar() {
         description={page.description}
         canonical={page.canonical}
       />
-      <div className="sr-only">
-        <p>{page.srText}</p>
-      </div>
-      <div className="space-y-12">
+<div className="space-y-12">
         <HeroSection heading={page.heading} />
         <AboutSection />
         <ContactsSection />

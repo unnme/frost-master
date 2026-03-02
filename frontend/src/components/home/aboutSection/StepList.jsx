@@ -6,8 +6,8 @@ export const StepUnit = ({ step, index, visible }) => {
   const Icon = step.icon;
 
   const cardCls = cn(
-    "group relative flex min-h-20 min-w-4/5 flex-col justify-center",
-    "rounded-4xl rounded-tr-none border-2 border-main-dark/30 bg-main-light shadow-sm",
+    "relative flex min-h-20 min-w-4/5 flex-col justify-center",
+    "rounded-4xl rounded-tr-none border-2 border-main-dark/30 bg-main-light shadow-md",
     "duration-500 ease-out sm:min-w-5/7 md:min-w-70",
     visible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0",
   );
@@ -18,7 +18,7 @@ export const StepUnit = ({ step, index, visible }) => {
       style={{ transitionDelay: `${index * 0.25}s` }}
     >
       {/* Left number badge */}
-      <div className="absolute -bottom-3 -left-3 z-20 flex h-10 w-10 items-center justify-center rounded-full border-2 border-main-dark/30 bg-main-light text-xl font-extrabold text-main-dark/60 transition-all duration-300 group-hover:scale-105">
+      <div className="absolute -bottom-3 -left-3 z-20 flex h-10 w-10 items-center justify-center rounded-full border-2 border-main-dark/30 bg-main-light text-xl font-extrabold text-main-dark/60">
         {index + 1}
       </div>
 
@@ -33,7 +33,7 @@ export const StepUnit = ({ step, index, visible }) => {
       </div>
 
       {/* Time badge */}
-      <div className="text-md absolute -top-3 -right-4 z-20 rounded-sm bg-main-orange/80 px-2.5 font-semibold text-main-light transition-transform duration-300 group-hover:scale-105">
+      <div className="text-md absolute -top-3 -right-4 z-20 rounded-sm bg-main-orange/80 px-2.5 font-semibold text-main-light">
         {step.time}
       </div>
     </div>

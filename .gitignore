@@ -8,13 +8,6 @@ build/
 .vite/
 *.tsbuildinfo
 out/
-storybook-static/
-
-# Generated files (generated automatically)
-frontend/openapi.json
-frontend/src/routeTree.gen.ts
-frontend/src/client/
-frontend/.tanstack/tmp/
 
 # ---------------------------------------------------------
 # ENV files
@@ -22,11 +15,9 @@ frontend/.tanstack/tmp/
 .env
 .env.*
 !.env.example
-!.env.staging.example
-!.env.production.example
 
 # ---------------------------------------------------------
-# BACKEND (Python + FastAPI + SQLAlchemy + uv)
+# BACKEND (Python + FastAPI + SQLite + uv)
 # ---------------------------------------------------------
 __pycache__/
 *.py[cod]
@@ -45,33 +36,15 @@ ENV/
 .mypy_cache/
 .dmypy.json
 dmypy.json
-.pytype/
-.pyre/
 
 # Testing
 .pytest_cache/
-.tox/
-.nox/
 .hypothesis/
 
 # SQLite
 *.sqlite
 *.sqlite3
 *.db
-
-# Alembic migrations cache
-alembic/versions/*.pyc
-alembic/versions/*__pycache__/
-app/alembic/versions/*.pyc
-app/alembic/versions/*__pycache__/
-
-# Generated email templates (generated from .mjml)
-backend/app/email-templates/build/
-app/email-templates/build/
-
-# User uploads (should not be in git)
-backend/static/uploads/
-static/uploads/
 
 # ---------------------------------------------------------
 # LOGS
@@ -82,7 +55,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
 # ---------------------------------------------------------
 # OS / EDITORS
@@ -93,26 +65,16 @@ lerna-debug.log*
 .Spotlight-V100
 .Trashes
 Thumbs.db
-ehthumbs.db
-Desktop.ini
 
 .cursor/
 .vscode/
 .idea/
+.mcp.json
+.claude/
 CLAUDE.md
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
 *.sw?
 *.swp
-*.swo
 *~
-
-# ---------------------------------------------------------
-# DOCKER
-# ---------------------------------------------------------
-.docker/
 
 # ---------------------------------------------------------
 # TEST COVERAGE
@@ -133,7 +95,7 @@ backups/
 .cache/
 
 # ---------------------------------------------------------
-# OPTIONAL GLOBAL NPM CACHE
+# NPM CACHE
 # ---------------------------------------------------------
 .npm/
 .yarn/

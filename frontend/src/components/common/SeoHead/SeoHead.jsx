@@ -1,10 +1,11 @@
 import { useEffect } from "react"
+import { SITE_CONFIG } from "@config/siteConfig";
 
 const DEFAULT_SITE_URL = "https://frost-master.com";
 const DEFAULT_TITLE =
   "Frost-Master — ремонт холодильников в Краснодаре и Адыгее";
 const DEFAULT_DESCRIPTION =
-  "Frost-Master — профессиональный ремонт холодильников в Краснодаре и Адыгее. Выезд мастера и диагностика БЕСПЛАТНО при согласии на ремонт. ☎️: +7 (927) 918-88-18. Ежедневно с 8:00 до 22:00. Гарантия 3-12 месяцев. Ремонт всех брендов: Samsung, LG, Bosch, Indesit, Atlant, Beko, Haier и другие.";
+  `Frost-Master — профессиональный ремонт холодильников в Краснодаре и Адыгее. Наш тел.: ${SITE_CONFIG.contacts.phone}. Выезд мастера и диагностика БЕСПЛАТНО при согласии на ремонт. Ежедневно с 8:00 до 22:00. Гарантия 3-12 месяцев. Ремонт всех брендов: Samsung, LG, Bosch, Indesit, Atlant, Beko, Haier и другие.`;
 
 /**
  * Normalizes URL to preferred domain (without www)
@@ -64,7 +65,7 @@ export const SeoHead = ({
     // Create optimized OG description (content-rich, no duplication)
     const ogDescription =
       description === DEFAULT_DESCRIPTION
-        ? "Выезд мастера и диагностика БЕСПЛАТНО при согласии на ремонт. ☎️: +7 (927) 918-88-18. Ежедневно с 8:00 до 22:00. Гарантия 3-12 месяцев. Ремонт всех брендов: Samsung, LG, Bosch, Indesit, Atlant, Beko, Haier и другие."
+        ? `Наш тел.: ${SITE_CONFIG.contacts.phone}. Выезд мастера и диагностика БЕСПЛАТНО при согласии на ремонт. Ежедневно с 8:00 до 22:00. Гарантия 3-12 месяцев. Ремонт всех брендов: Samsung, LG, Bosch, Indesit, Atlant, Beko, Haier и другие.`
         : description.replace(/^Frost-Master\s*—\s*/, "");
 
     const ogTags = {

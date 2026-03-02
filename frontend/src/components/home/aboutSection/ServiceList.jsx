@@ -19,7 +19,7 @@ export const ServiceList = () => {
           return (
             <div
               key={title}
-              className="overflow-hidden rounded-2xl border border-main-dark/10 bg-main-light"
+              className="overflow-hidden rounded-2xl border border-main-dark/10 bg-main-light shadow-md"
             >
               <button
                 onClick={() => handleToggle(index)}
@@ -54,16 +54,26 @@ export const ServiceList = () => {
 
       {/* Cards — sm and above */}
       <div className="hidden gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-3">
-        {SERVICES.map(({ icon: Icon, title, description }) => (
+        {SERVICES.map(({ icon: Icon, title, description, accent }) => (
           <article
             key={title}
-            className="rounded-3xl border border-main-dark/10 bg-main-light p-5 shadow-sm"
+            className={cn(
+              "group rounded-3xl border p-5 shadow-md transition-all duration-300 hover:shadow-lg",
+              accent
+                ? "gradient-blue-strong border-main-light/20"
+                : "border-main-dark/10 bg-main-light hover:bg-main-orange/2",
+            )}
           >
-            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-main-orange/5 border border-main-orange/30">
-              <Icon className="h-6 w-6 text-main-orange" />
+            <div className={cn(
+              "mb-4 flex h-12 w-12 items-center justify-center rounded-xl border",
+              accent
+                ? "border-main-light/20 bg-main-light/10"
+                : "border-main-orange/30 bg-main-orange/5",
+            )}>
+              <Icon className={cn("h-6 w-6", accent ? "text-main-light" : "text-main-orange")} />
             </div>
-            <h3 className="mb-2 text-lg font-bold text-main-dark">{title}</h3>
-            <p className="text-sm leading-relaxed text-main-dark/80">{description}</p>
+            <h3 className={cn("mb-2 text-lg font-bold", accent ? "text-main-light" : "text-main-dark")}>{title}</h3>
+            <p className={cn("text-sm leading-relaxed", accent ? "text-main-light/80" : "text-main-dark/80")}>{description}</p>
           </article>
         ))}
       </div>
