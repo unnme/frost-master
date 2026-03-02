@@ -2,11 +2,6 @@ import { SearchCheck, Wrench, Wind, Thermometer, Snowflake, Frame } from "lucide
 
 export const SERVICES = [
   {
-    icon: SearchCheck,
-    title: "Диагностика",
-    description: "Выявление неисправностей с помощью профессионального оборудования",
-  },
-  {
     icon: Wrench,
     title: "Замена компрессора",
     description: "Установка оригинальных и совместимых компрессоров",
@@ -30,5 +25,11 @@ export const SERVICES = [
     icon: Frame,
     title: "Замена уплотнителя",
     description: "Замена уплотнителя в холодильнике",
+  },
+  {
+    icon: SearchCheck,
+    title: "Диагностика",
+    description: "Выявление неисправностей с помощью профессионального оборудования",
+    accent: true,
   },
 ];

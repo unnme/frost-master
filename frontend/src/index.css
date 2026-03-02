@@ -30,7 +30,6 @@
 
   /* Social hover colors */
   --color-social-telegram: #60a5fa;
-  --color-social-whatsapp: #4ade80;
   --color-social-max: #0077ff;
 
   --font-sans: "Manrope", system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -51,9 +50,18 @@
   .gradient-blue-strong {
     background-image: linear-gradient(
       to right,
-      var(--color-gradient-strong-start),
-      var(--color-gradient-strong-mid),
-      var(--color-gradient-strong-end)
+      rgba(76, 79, 150, 0.92),
+      rgba(64, 85, 153, 0.92),
+      rgba(61, 89, 157, 0.78)
+    );
+  }
+
+  .gradient-blue-strong-faded {
+    background-image: linear-gradient(
+      to right,
+      rgba(76, 79, 150, 0.72),
+      rgba(64, 85, 153, 0.68),
+      rgba(61, 89, 157, 0.55)
     );
   }
 }

@@ -37,16 +37,16 @@ export const BrandsStrip = () => {
 	};
 
 	return (
-		<div
-			ref={ref}
-			className={cn(
-				"transition-all duration-700 ease-out",
-				visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0",
-			)}
-		>
-			<div className="mb-12 px-6 md:px-8">
-				<h2 className="flex items-center justify-center gap-3 text-4xl font-extrabold text-main-dark/90">
-					<BadgeCheck className="h-9 w-9 shrink-0 text-main-orange" />
+		<div>
+			<div
+				ref={ref}
+				className={cn(
+					"mb-12 px-6 transition-all duration-1200 ease-out md:px-8",
+					visible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0",
+				)}
+			>
+				<h2 className="flex items-center justify-center gap-3 text-4xl font-extrabold leading-none text-main-dark/90">
+					<BadgeCheck className="h-8 w-8 shrink-0 text-main-dark/90" />
 					Обслуживаемые марки
 				</h2>
 				<p className="mt-2 text-center text-main-dark/60">

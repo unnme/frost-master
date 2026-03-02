@@ -7,7 +7,7 @@ export const RepairTagsBar = () => {
         {[...REPAIR_TAGS, ...REPAIR_TAGS].map((tag, i) => (
           <div
             key={i}
-            className="text-xl font-semibold text-main-dark/40"
+            className="text-xl font-semibold text-brand-frost/40"
           >
             {tag}
           </div>

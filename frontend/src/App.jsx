@@ -4,13 +4,15 @@ import { useSendClientInfo } from "@hooks/useSendClientInfo";
 import { Suspense } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { Toaster } from "sonner";
+import { OfflineModal, useAutoOfflineModal } from "@components/common/OfflineModal";
 
 export const App = () => {
   useSendClientInfo();
+  const { isOpen: offlineOpen, close: closeOffline, forceOpen: openOffline } = useAutoOfflineModal();
 
   return (
     <BrowserRouter>
-			<Suspense fallback={<Loading name="suspense" />}>
+      <Suspense fallback={<Loading name="suspense" />}>
         <Router />
       </Suspense>
       <Toaster
@@ -23,6 +25,16 @@ export const App = () => {
           },
         }}
       />
+      {offlineOpen && <OfflineModal onClose={closeOffline} />}
+      {import.meta.env.DEV && (
+        <button
+          onClick={openOffline}
+          title="[DEV] Открыть OfflineModal"
+          className="fixed bottom-4 left-4 z-40 rounded-full bg-main-dark px-3 py-1.5 text-xs font-bold text-main-light opacity-60 hover:opacity-100"
+        >
+          offline?
+        </button>
+      )}
     </BrowserRouter>
   );
 };

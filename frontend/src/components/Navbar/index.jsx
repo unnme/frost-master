@@ -12,7 +12,7 @@ import { MobileNav } from "./MobileNav";
 import { ContactsBlock } from "./ContactsBlock";
 
 export const Navbar = () => {
-  const { phone, telHref, telegramUrl, whatsappUrl, maxUrl } = SITE_CONFIG.contacts;
+  const { phone, telHref, telegramUrl, maxUrl } = SITE_CONFIG.contacts;
 
   const [open, setOpen] = useState(false);
   const activeId = useActiveSection(NAV_ITEMS.map(({ id }) => id));
@@ -54,7 +54,6 @@ export const Navbar = () => {
             phone={phone}
             telHref={telHref}
             telegramUrl={telegramUrl}
-            whatsappUrl={whatsappUrl}
             maxUrl={maxUrl}
             hidePhone={!contactsVisible}
           />

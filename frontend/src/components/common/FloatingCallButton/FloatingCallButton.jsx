@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Phone } from "lucide-react";
 import { SITE_CONFIG } from "@config/siteConfig";
 import { cn } from "@utils/cn";
-import { useContactsVisible } from "./useContactsVisible";
+import { useContactsVisible } from "@hooks/useContactsVisible";
 
 const SCROLL_THRESHOLD = 150;
 

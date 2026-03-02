@@ -12,6 +12,6 @@ export const FEATURES = [
   {
     icon: MapPin,
     title: "Выезд по городу и области",
-    iconClassName: "h-9 w-9",
+    iconClassName: "h-7 w-7",
   },
 ];

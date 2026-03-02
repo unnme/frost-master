@@ -5,6 +5,9 @@ import { FAQ_ITEMS } from "@config/faqItems";
 const { siteUrl, brandName, contacts, geo, sameAs, serviceAreas } =
   SITE_CONFIG;
 
+// E.164 format required by schema.org: +79934433956
+const phoneE164 = contacts.telHref.replace("tel:", "");
+
 /**
  * Structured data component for SEO (JSON-LD)
  * Optimized for Yandex and Google search engines
@@ -20,7 +23,7 @@ export const StructuredData = () => {
       description:
         "Ремонт холодильников и холодильного оборудования в Краснодаре и Адыгее. Профессиональный мастер с 10-летним опытом. Выезд на дом, гарантия на работы.",
       url: siteUrl,
-      telephone: contacts.phone,
+      telephone: phoneE164,
       email: contacts.email,
       priceRange: "$$",
       address: {
@@ -114,7 +117,7 @@ export const StructuredData = () => {
       logo: `${siteUrl}/logo.svg`,
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: contacts.phone,
+        telephone: phoneE164,
         contactType: "customer service",
         areaServed: ["RU"],
         availableLanguage: ["Russian"],

@@ -20,12 +20,14 @@ export const HeroBanner = ({ heading = DEFAULT_HEADING }) => {
       {/* Text */}
       <div className="z-10 flex flex-1 flex-col px-6 sm:items-center lg:items-start">
         <h1 className="text-left sm:text-center lg:text-left">
-          <span className="mb-1 block text-4xl font-extrabold text-main-light sm:text-4xl md:text-5xl md:font-bold">
-            Ремонт<br className="hidden lg:block" /> холодильников
-          </span>
-          <span className="mb-1 block text-4xl font-extrabold text-main-light sm:text-4xl md:mt-1 md:text-5xl md:font-bold">
-            <span className="whitespace-nowrap">в Краснодаре</span> и Адыгее
-          </span>
+          {heading.map((line, i) => (
+            <span
+              key={i}
+              className={`mb-1 block text-4xl font-extrabold text-main-light sm:text-4xl md:text-5xl md:font-bold${i > 0 ? " md:mt-1" : ""}`}
+            >
+              {line}
+            </span>
+          ))}
         </h1>
 
         <p className="mt-2 text-3xl text-main-light lg:mt-4">

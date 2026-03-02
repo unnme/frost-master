@@ -19,7 +19,7 @@ export const HeroSection = ({ heading }) => {
         <FeaturesBar />
       </div>
 
-      <div className="relative md:px-8 lg:px-0 lg:py-10">
+      <div className="relative md:px-8 lg:px-0 lg:py-12">
         <div className="flex flex-col gap-x-16 gap-y-18 lg:flex-row">
           <SectionBackground
             variant="left"
