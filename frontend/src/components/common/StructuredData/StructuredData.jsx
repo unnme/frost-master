@@ -19,7 +19,14 @@ export const StructuredData = () => {
       "@type": "LocalBusiness",
       "@id": `${siteUrl}#localbusiness`,
       name: brandName,
-      alternateName: "Frost Master",
+      alternateName: [
+        "Frost Master",
+        "Фрост-Мастер",
+        "Фрост Мастер",
+        "ФростМастер",
+        "фрост-мастер",
+        "фрост мастер",
+      ],
       description:
         "Ремонт холодильников и холодильного оборудования в Краснодаре и Адыгее. Профессиональный мастер с 10-летним опытом. Выезд на дом, гарантия на работы.",
       url: siteUrl,
@@ -112,7 +119,14 @@ export const StructuredData = () => {
       "@type": "Organization",
       "@id": `${siteUrl}#organization`,
       name: brandName,
-      alternateName: "Frost Master",
+      alternateName: [
+        "Frost Master",
+        "Фрост-Мастер",
+        "Фрост Мастер",
+        "ФростМастер",
+        "фрост-мастер",
+        "фрост мастер",
+      ],
       url: siteUrl,
       logo: `${siteUrl}/logo.svg`,
       contactPoint: {
